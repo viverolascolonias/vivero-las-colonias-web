@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fbf9f5;
+  --foreground: #2e2b21;
+
+  /* Paleta de marca Vivero Las Colonias */
+  --color-forest: #697254;
+  --color-forest-dark: #4e5640;
+  --color-olive: #828c6a;
+  --color-moss: #8c916c;
+  --color-sage: #a0ab89;
+  --color-sage-light: #ccd3bd;
+  --color-sand: #b69c85;
+  --color-earth: #92735c;
+
+  --color-cream: #dbd0c4;
+  --color-cream-200: #ede4d6;
+  --color-cream-100: #f4efe7;
+  --color-cream-50: #fbf9f5;
+
+  --color-ink: #2e2b21;
+  --color-ink-soft: #6b6555;
+  --color-border: #e2d9ca;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-body);
+  --font-serif: var(--font-heading);
+
+  --color-forest: var(--color-forest);
+  --color-forest-dark: var(--color-forest-dark);
+  --color-olive: var(--color-olive);
+  --color-moss: var(--color-moss);
+  --color-sage: var(--color-sage);
+  --color-sage-light: var(--color-sage-light);
+  --color-sand: var(--color-sand);
+  --color-earth: var(--color-earth);
+
+  --color-cream: var(--color-cream);
+  --color-cream-200: var(--color-cream-200);
+  --color-cream-100: var(--color-cream-100);
+  --color-cream-50: var(--color-cream-50);
+
+  --color-ink: var(--color-ink);
+  --color-ink-soft: var(--color-ink-soft);
+  --color-border: var(--color-border);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body), Arial, Helvetica, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading), Georgia, serif;
+}
+
+* {
+  border-color: var(--color-border);
+}
+
+::selection {
+  background: var(--color-sage-light);
+  color: var(--color-forest-dark);
+}

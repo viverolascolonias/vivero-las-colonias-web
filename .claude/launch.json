@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "vivero-web-dev",
+      "runtimeExecutable": "/Users/antonellagargiullo/Vivero Las Colonias Web/dev.sh",
+      "runtimeArgs": [],
+      "port": 3001
+    }
+  ]
+}
