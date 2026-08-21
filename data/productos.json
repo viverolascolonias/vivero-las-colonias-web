@@ -22,9 +22,10 @@
     "precio": 5000,
     "disponible": true,
     "imagen": null,
-    "tipoFloracion": null,
-    "color": null,
-    "aromatica": null
+    "tipoFloracion": "Grandiflora",
+    "color": "Naranja Albaricoque",
+    "aromatica": false,
+    "descripcion": "Rosa de flores grandes en tonos naranja albaricoque, de presencia elegante y llamativa. Destaca por su color cálido y luminoso, ideal para aportar protagonismo y color al jardín."
   },
   {
     "id": "c0fab29c922e9a4a48f6b755d",
@@ -35,9 +36,10 @@
     "precio": 5000,
     "disponible": true,
     "imagen": null,
-    "tipoFloracion": null,
-    "color": null,
-    "aromatica": null
+    "tipoFloracion": "Grandiflora",
+    "color": "Púrpura",
+    "aromatica": true,
+    "descripcion": "Rosa de intenso color púrpura, con flores grandes y elegantes que destacan por su tonalidad profunda y llamativa. Ideal para aportar un toque sofisticado y de gran presencia al jardín."
   },
   {
     "id": "c33df33194958fe5793f2838d",
@@ -48,9 +50,10 @@
     "precio": 5000,
     "disponible": true,
     "imagen": null,
-    "tipoFloracion": null,
-    "color": null,
-    "aromatica": null
+    "tipoFloracion": "Botonera",
+    "color": "Rojo terciopelo",
+    "aromatica": false,
+    "descripcion": "Rosa botonera de intenso color rojo terciopelo, con flores elegantes y bien formadas. Destaca por su tonalidad profunda, aspecto sofisticado y gran presencia, siendo una excelente opción para aportar elegancia y contraste al jardín."
   },
   {
     "id": "ccb2812753f3d094c1c667dfd",
@@ -61,9 +64,10 @@
     "precio": 5000,
     "disponible": true,
     "imagen": null,
-    "tipoFloracion": null,
-    "color": null,
-    "aromatica": null
+    "tipoFloracion": "Grandiflora",
+    "color": "Lila malva",
+    "aromatica": false,
+    "descripcion": "Rosa botonera de flores grandes y elegantes, en un distintivo tono lila malva. Destaca por su tonalidad intensa y sofisticada, aportando un aspecto elegante y llamativo al jardín."
   },
   {
     "id": "c25251a4e7263e30622b15a47",
@@ -74,9 +78,10 @@
     "precio": 5000,
     "disponible": true,
     "imagen": null,
-    "tipoFloracion": null,
-    "color": null,
-    "aromatica": null
+    "tipoFloracion": "Grandiflora",
+    "color": "Rosa y amarillo, bordes rosados",
+    "aromatica": true,
+    "descripcion": "Rosa botonera de flores grandes y llamativas, con una combinación de amarillo y rosa que adquiere tonalidades más intensas hacia los bordes. Destaca por su elegante combinación de colores y su presencia ornamental."
   },
   {
     "id": "c49003741b1df09e22a0683e8",
@@ -88,8 +93,9 @@
     "disponible": true,
     "imagen": null,
     "tipoFloracion": "Floribunda",
-    "color": "Lavanda/azulada",
-    "aromatica": true
+    "color": "Lila azulada/violeta",
+    "aromatica": true,
+    "descripcion": "Choking Blue es un rosal arbustivo bajo, de floración abundante y llamativa. Sus flores presentan una tonalidad lila azulada/violeta, con pétalos delicados y una apariencia elegante. Es una variedad ideal para aportar color y contraste al jardín, con una floración que destaca especialmente por su tonalidad poco común."
   },
   {
     "id": "cmsnrcbcv00009e7q1ffpocne",
@@ -100,9 +106,10 @@
     "precio": 5000,
     "disponible": true,
     "imagen": null,
-    "tipoFloracion": null,
-    "color": null,
-    "aromatica": null
+    "tipoFloracion": "Grandiflora",
+    "color": "Blanco bordes rosados",
+    "aromatica": false,
+    "descripcion": "Rosal de floración abundante, con flores de gran tamaño en tonos blanco crema a rosado intenso, destacando por sus bordes fucsia y su centro rosado. Forma ramilletes florales que aportan mucho volumen y color, ideal para jardines donde se busca una floración vistosa y prolongada."
   },
   {
     "id": "ca85ae82b3e88ff9edfc0d772",
@@ -113,9 +120,10 @@
     "precio": 5000,
     "disponible": true,
     "imagen": null,
-    "tipoFloracion": null,
-    "color": null,
-    "aromatica": null
+    "tipoFloracion": "Floribunda",
+    "color": "Rojo centro amarillo",
+    "aromatica": false,
+    "descripcion": "Cocktail 🌹 es un rosal de floribunda, de floración abundante y muy vistosa. Sus flores presentan una combinación de amarillo dorado en el centro y bordes rojizos a anaranjados, creando un contraste intenso y atractivo. Produce flores en ramilletes y es una excelente opción para aportar color y movimiento al jardín."
   },
   {
     "id": "c623d65c98a846f39061633e8",
@@ -126,9 +134,10 @@
     "precio": null,
     "disponible": true,
     "imagen": null,
-    "tipoFloracion": null,
-    "color": null,
-    "aromatica": null
+    "tipoFloracion": "Floribunda",
+    "color": "Rojo centro amarillo",
+    "aromatica": false,
+    "descripcion": "Cocktail 🌹 es un rosal de floribunda, de floración abundante y muy vistosa. Sus flores presentan una combinación de amarillo dorado en el centro y bordes rojizos a anaranjados, creando un contraste intenso y atractivo. Produce flores en ramilletes y es una excelente opción para aportar color y movimiento al jardín."
   },
   {
     "id": "c1edcfc03f60f5a55f908c341",
@@ -152,9 +161,10 @@
     "precio": 5000,
     "disponible": true,
     "imagen": null,
-    "tipoFloracion": null,
-    "color": null,
-    "aromatica": null
+    "tipoFloracion": "Botonera",
+    "color": "Blanca",
+    "aromatica": false,
+    "descripcion": "Rosal de flores grandes, blancas y muy elegantes, con pétalos abundantes y un centro ligeramente marfil. Sus flores presentan una forma clásica y bien definida, destacando por su luminosidad y apariencia delicada. Ideal para jardines y espacios donde se busca una flor blanca de gran presencia."
   },
   {
     "id": "cmsm48jj9000ce97qldk3b6qr",
@@ -165,9 +175,10 @@
     "precio": 5000,
     "disponible": true,
     "imagen": null,
-    "tipoFloracion": null,
-    "color": null,
-    "aromatica": null
+    "tipoFloracion": "Botonera",
+    "color": "Purpura",
+    "aromatica": true,
+    "descripcion": "Corazón Púrpura es un rosal de flor grande y muy llamativa, caracterizado por sus intensos tonos púrpura, fucsia y magenta, con una tonalidad más profunda hacia el centro. Sus pétalos aterciopelados forman una flor elegante y de gran presencia."
   },
   {
     "id": "cdc91c7f9545515d51f6ff2a2",
@@ -178,9 +189,10 @@
     "precio": 5000,
     "disponible": true,
     "imagen": null,
-    "tipoFloracion": null,
-    "color": null,
-    "aromatica": null
+    "tipoFloracion": "Floribunda",
+    "color": "Rosada",
+    "aromatica": true,
+    "descripcion": "Leonardo da Vinci es un rosal de floribunda, reconocido por sus flores grandes, muy llenas y de forma romántica. Sus pétalos presentan un tono rosado intenso y uniforme, formando rosetas abundantes y elegantes. Produce flores en ramilletes y destaca por su floración generosa y prolongada."
   },
   {
     "id": "cccdbaaa298ed5f71a8bcfe16",
@@ -191,9 +203,10 @@
     "precio": null,
     "disponible": true,
     "imagen": null,
-    "tipoFloracion": null,
-    "color": null,
-    "aromatica": null
+    "tipoFloracion": "Floribunda",
+    "color": "Rosada",
+    "aromatica": true,
+    "descripcion": "Leonardo da Vinci es un rosal de floribunda, reconocido por sus flores grandes, muy llenas y de forma romántica. Sus pétalos presentan un tono rosado intenso y uniforme, formando rosetas abundantes y elegantes. Produce flores en ramilletes y destaca por su floración generosa y prolongada."
   },
   {
     "id": "cmsm4ae99000de97qk4kstxni",
@@ -204,9 +217,10 @@
     "precio": 12000,
     "disponible": true,
     "imagen": null,
-    "tipoFloracion": null,
-    "color": null,
-    "aromatica": null
+    "tipoFloracion": "Floribunda",
+    "color": "Rosada",
+    "aromatica": true,
+    "descripcion": "Leonardo da Vinci es un rosal de floribunda, reconocido por sus flores grandes, muy llenas y de forma romántica. Sus pétalos presentan un tono rosado intenso y uniforme, formando rosetas abundantes y elegantes. Produce flores en ramilletes y destaca por su floración generosa y prolongada."
   },
   {
     "id": "c6afbf9d91764c071a815e73d",
@@ -217,9 +231,10 @@
     "precio": 5000,
     "disponible": true,
     "imagen": null,
-    "tipoFloracion": null,
-    "color": null,
-    "aromatica": null
+    "tipoFloracion": "Botonera",
+    "color": "Blanco crema/bordes fucsias",
+    "aromatica": false,
+    "descripcion": "Diva de Divas es un rosal de flor grande y elegante, con pétalos de color blanco crema, delicadamente bordeados en rosado intenso a fucsia. El contraste entre el centro claro y los bordes marcados le da una apariencia sofisticada y muy llamativa."
   },
   {
     "id": "c55f28b2a8a9d58f3df99ac7e",
@@ -230,9 +245,10 @@
     "precio": 5000,
     "disponible": true,
     "imagen": null,
-    "tipoFloracion": null,
-    "color": null,
-    "aromatica": null
+    "tipoFloracion": "Botonera",
+    "color": "Rojo, naranja y amarillo",
+    "aromatica": false,
+    "descripcion": "Fire es un rosal de flor grande y muy llamativa, caracterizado por sus pétalos en tonos rojo intenso, naranja y amarillo, que crean un contraste cálido y vibrante. Su centro amarillo-anaranjado se intensifica hacia los bordes rojizos, dando a la flor una apariencia encendida y elegante."
   },
   {
     "id": "c329c1ec1399c00fc83c4d6c7",
@@ -243,9 +259,10 @@
     "precio": 5000,
     "disponible": true,
     "imagen": null,
-    "tipoFloracion": null,
-    "color": null,
-    "aromatica": null
+    "tipoFloracion": "Grandiflora",
+    "color": "Rosado, coral y crema",
+    "aromatica": false,
+    "descripcion": "Flaming 2.0 es un rosal de flor grande y elegante, con una combinación de tonos rosado intenso, coral y crema. Sus pétalos presentan bordes rosados marcados y un centro más claro, creando un contraste cálido y delicado. La flor tiene una forma clásica y bien definida, destacando por su coloración bicolor."
   },
   {
     "id": "c9b6665101c7e317dbea63555",
@@ -256,9 +273,10 @@
     "precio": 5000,
     "disponible": true,
     "imagen": null,
-    "tipoFloracion": null,
-    "color": null,
-    "aromatica": null
+    "tipoFloracion": "Botonera",
+    "color": "Fucsia, rosado intenso",
+    "aromatica": false,
+    "descripcion": "Flaming Pieces es un rosal de flor grande y muy vistosa, con pétalos en un intenso tono fucsia-rosado, que adquieren una tonalidad más clara hacia el centro. Su flor presenta una forma elegante y bien definida, con abundantes pétalos y gran presencia ornamental."
   },
   {
     "id": "c9f67cc2ae42674e0590f5f59",
@@ -269,9 +287,10 @@
     "precio": null,
     "disponible": true,
     "imagen": null,
-    "tipoFloracion": null,
-    "color": null,
-    "aromatica": null
+    "tipoFloracion": "Botonera",
+    "color": "Fucsia, rosado intenso",
+    "aromatica": false,
+    "descripcion": "Flaming Pieces es un rosal de flor grande y muy vistosa, con pétalos en un intenso tono fucsia-rosado, que adquieren una tonalidad más clara hacia el centro. Su flor presenta una forma elegante y bien definida, con abundantes pétalos y gran presencia ornamental."
   },
   {
     "id": "c721bafb4f476c2331d512164",
@@ -282,9 +301,10 @@
     "precio": 5000,
     "disponible": true,
     "imagen": null,
-    "tipoFloracion": null,
-    "color": null,
-    "aromatica": null
+    "tipoFloracion": "Floribunda",
+    "color": "Amarillo",
+    "aromatica": false,
+    "descripcion": "Freedom es un rosal de floribunda, de floración abundante y vistosa. Sus flores presentan un intenso amarillo dorado, con pétalos amplios y una forma elegante y bien definida. Destaca por aportar luminosidad y color al jardín."
   },
   {
     "id": "c767ad0079bb2bd54467922c4",
@@ -295,9 +315,10 @@
     "precio": null,
     "disponible": true,
     "imagen": null,
-    "tipoFloracion": null,
-    "color": null,
-    "aromatica": null
+    "tipoFloracion": "Floribunda",
+    "color": "Amarillo",
+    "aromatica": false,
+    "descripcion": "Freedom es un rosal de floribunda, de floración abundante y vistosa. Sus flores presentan un intenso amarillo dorado, con pétalos amplios y una forma elegante y bien definida. Destaca por aportar luminosidad y color al jardín."
   },
   {
     "id": "caa86b44935ebac1cf5545f1e",
@@ -308,9 +329,10 @@
     "precio": 5000,
     "disponible": true,
     "imagen": null,
-    "tipoFloracion": null,
-    "color": null,
-    "aromatica": null
+    "tipoFloracion": "Floribunda",
+    "color": "Amarillo paz",
+    "aromatica": true,
+    "descripcion": "Fresia es un rosal de floribunda, reconocido por sus flores grandes y abundantes de color amarillo crema, que pueden adquirir una tonalidad más intensa hacia el centro. Sus flores presentan numerosos pétalos y una forma elegante, además de destacar por su agradable y característico aroma."
   },
   {
     "id": "c0cd5c1d34e1302da754ee498",
