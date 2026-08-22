@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Container from "@/app/components/ui/Container";
 import ImagenBloque from "@/app/components/ui/ImagenBloque";
+import ImagenFondo from "@/app/components/ui/ImagenFondo";
 import SectionHeading from "@/app/components/ui/SectionHeading";
 import Badge from "@/app/components/ui/Badge";
 import WhatsAppButton from "@/app/components/ui/WhatsAppButton";
@@ -76,24 +77,40 @@ const SERVICIOS = [
 export default function PaisajismoPage() {
   return (
     <div>
-      <div className="relative">
-        <ImagenBloque
+      <section className="relative flex h-[46vh] min-h-[380px] items-center overflow-hidden">
+        {/* La foto está compuesta con espacio libre a la izquierda para el
+            texto. En pantallas angostas, object-position se corre hacia el
+            centro para no perder el sendero y las flores (que en el
+            recorte por defecto quedarían fuera de cuadro). */}
+        <ImagenFondo
           rutaBase="images/paisajismo/banner"
-          alt="Paisajismo Vivero Las Colonias"
+          alt="Jardín naturalista con sendero de grava, lavandas, gramíneas y flores perennes de bajo consumo hídrico"
           variant="olive"
-          className="h-[46vh] w-full"
+          priority
+          imgClassName="object-[54%_66%] md:object-[center_60%]"
         />
-        <div className="absolute inset-0 flex items-center justify-center bg-[var(--color-ink)]/20">
-          <Container className="text-center">
+        <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-ink)]/65 via-[var(--color-ink)]/25 to-transparent" />
+
+        <Container className="relative z-10">
+          <div className="max-w-md text-left">
             <p className="mb-3 text-xs font-medium tracking-[0.2em] uppercase text-[var(--color-cream-50)]">
               Paisajismo
             </p>
             <h1 className="text-4xl md:text-5xl font-medium text-[var(--color-cream-50)]">
               Espacios que crecen contigo
             </h1>
-          </Container>
-        </div>
-      </div>
+            <p className="mt-4 text-[var(--color-cream-100)]">
+              Diseños sostenibles, con estructura y bajo consumo hídrico.
+            </p>
+            <WhatsAppButton
+              mensaje="Hola, quiero conversar sobre un proyecto de paisajismo."
+              className="mt-6 shadow-lg shadow-black/30"
+            >
+              Conversemos por WhatsApp
+            </WhatsAppButton>
+          </div>
+        </Container>
+      </section>
 
       <Container className="py-16 md:py-20">
         <SectionHeading

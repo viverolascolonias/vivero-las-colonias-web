@@ -11,18 +11,29 @@ export default function ImagenFondo({
   alt,
   variant = "olive",
   priority = false,
+  imgClassName = "",
 }: {
   rutaBase: string;
   alt: string;
   variant?: "olive" | "sand" | "sage";
   priority?: boolean;
+  /** Clases extra para la <Image> (ej. object-position responsivo cuando el
+   * encuadre por defecto no deja visible lo importante en pantallas angostas). */
+  imgClassName?: string;
 }) {
   const src = resolverImagenPublica(rutaBase);
 
   return (
     <div className="absolute inset-0 h-full w-full">
       {src ? (
-        <Image src={src} alt={alt} fill priority={priority} sizes="100vw" className="object-cover" />
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          priority={priority}
+          sizes="100vw"
+          className={`object-cover ${imgClassName}`}
+        />
       ) : (
         <PlaceholderImage variant={variant} className="h-full w-full" />
       )}
