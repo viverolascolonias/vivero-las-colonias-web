@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Container from "@/app/components/ui/Container";
 import ImagenBloque from "@/app/components/ui/ImagenBloque";
 import SectionHeading from "@/app/components/ui/SectionHeading";
+import Badge from "@/app/components/ui/Badge";
 import WhatsAppButton from "@/app/components/ui/WhatsAppButton";
 
 export const metadata: Metadata = {
@@ -9,43 +10,43 @@ export const metadata: Metadata = {
   description: "Diseño, instalación, mantención y asesoría de jardines por Vivero Las Colonias.",
 };
 
-// Imágenes de referencia (no son fotografías propias de Vivero Las
-// Colonias todavía) que muestran el tipo de jardín y paisajismo que se
-// puede realizar. Cada `rutaBase` sigue el mismo mecanismo que el resto
-// del sitio (ImagenBloque -> resolverImagenPublica): para reemplazar una
-// por una foto real de un proyecto propio, basta con subir el archivo con
-// el mismo nombre a esa ruta en /public -- no hace falta tocar este
-// componente ni rediseñar la sección.
-const GALERIA = [
+// Estilos de paisajismo que ofrece el vivero, cada uno con su fotografía
+// propia. Cada `rutaBase` sigue el mismo mecanismo que el resto del sitio
+// (ImagenBloque -> resolverImagenPublica): para reemplazar una foto más
+// adelante alcanza con subir un archivo con el mismo nombre a esa ruta en
+// /public, sin tocar este componente.
+const ESTILOS = [
   {
-    rutaBase: "images/paisajismo/galeria/rosales",
-    alt: "Paisajismo con rosales como protagonistas",
-    caption: "Paisajismo con rosales",
+    rutaBase: "images/paisajismo/estilos/moderno-naturalista",
+    alt: "Jardín de paisajismo moderno naturalista con gramíneas y flores perennes",
+    titulo: "Paisajismo moderno naturalista",
+    descripcion:
+      "Diseños contemporáneos con estructura clara, senderos, gramíneas ornamentales y flores perennes como salvias, equináceas y milenrama. Utilizamos especies de bajo consumo hídrico, áridos y vegetación adaptada para lograr jardines atractivos, sostenibles y de fácil mantención.",
+    etiquetas: ["Bajo consumo hídrico", "Bajo mantenimiento"],
   },
   {
-    rutaBase: "images/paisajismo/galeria/jardin-residencial",
-    alt: "Jardín residencial con macizos de flores",
-    caption: "Jardines residenciales",
+    rutaBase: "images/paisajismo/estilos/mediterraneo-florido",
+    alt: "Jardín de paisajismo mediterráneo florido con olivos y lavandas",
+    titulo: "Paisajismo mediterráneo florido",
+    descripcion:
+      "Jardines cálidos y resistentes, inspirados en el paisaje mediterráneo. Integramos olivos, lavandas, romero, salvias, gramíneas y flores perennes, combinados con grava y piedra natural. Es una solución de bajo riego, colorida y adecuada para climas secos.",
+    etiquetas: ["Bajo consumo hídrico", "Flora perenne"],
   },
   {
-    rutaBase: "images/paisajismo/galeria/macizo-flores",
-    alt: "Macizo de flores de temporada",
-    caption: "Macizos de flores",
+    rutaBase: "images/paisajismo/estilos/tropical-eficiente",
+    alt: "Jardín de paisajismo tropical eficiente con palmeras y aves del paraíso",
+    titulo: "Paisajismo tropical eficiente",
+    descripcion:
+      "Composiciones de follaje, color y textura para climas cálidos. Combina palmeras, aves del paraíso, lantanas, salvias y gramíneas, organizadas en capas para mantener una apariencia exuberante pero ordenada. Selecciona plantas resistentes al calor y de consumo hídrico controlado.",
+    etiquetas: ["Bajo consumo hídrico"],
   },
   {
-    rutaBase: "images/paisajismo/galeria/entrada-casa",
-    alt: "Entrada de casa con jardín y accesos ajardinados",
-    caption: "Entradas y accesos",
-  },
-  {
-    rutaBase: "images/paisajismo/galeria/jardin-moderno",
-    alt: "Jardín moderno y elegante",
-    caption: "Jardines modernos",
-  },
-  {
-    rutaBase: "images/paisajismo/galeria/arbustos-flores",
-    alt: "Combinación de arbustos y flores en un sendero de jardín",
-    caption: "Arbustos y flores",
+    rutaBase: "images/paisajismo/estilos/minimalista-florido",
+    alt: "Jardín de paisajismo minimalista florido con olivo, grava y lavandas",
+    titulo: "Paisajismo minimalista florido",
+    descripcion:
+      "Un estilo sobrio y elegante que mantiene espacios despejados, materiales naturales y plantaciones definidas. Combina olivos, grava, rocas, lavandas, salvias, flores perennes y gramíneas ornamentales para aportar color, movimiento y bajo mantenimiento sin perder la simplicidad visual.",
+    etiquetas: ["Flora perenne", "Bajo mantenimiento"],
   },
 ];
 
@@ -96,26 +97,40 @@ export default function PaisajismoPage() {
 
       <Container className="py-16 md:py-20">
         <SectionHeading
-          eyebrow="Referencias de proyectos"
-          title="El estilo de jardín que podemos crear"
-          subtitle="Una muestra del tipo de paisajismo y composición que trabajamos: desde macizos de flores hasta jardines donde el rosal es el protagonista."
+          eyebrow="Estilos de paisajismo"
+          title="Encuentra el estilo para tu jardín"
+          subtitle="Diseños pensados para distintos climas y espacios, con foco en bajo consumo hídrico, bajo mantenimiento y flora perenne."
         />
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {GALERIA.map((item) => (
+        <div className="grid gap-8 md:grid-cols-2">
+          {ESTILOS.map((estilo) => (
             <div
-              key={item.rutaBase}
-              className="group relative overflow-hidden rounded-2xl border border-[var(--color-border)]"
+              key={estilo.rutaBase}
+              className="overflow-hidden rounded-2xl border border-[var(--color-border)] bg-[var(--color-cream-50)]"
             >
-              <ImagenBloque
-                rutaBase={item.rutaBase}
-                alt={item.alt}
-                variant="sage"
-                className="aspect-[4/3] w-full transition-transform duration-500 group-hover:scale-[1.03]"
-                sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-              />
-              <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-[var(--color-ink)]/70 to-transparent px-4 pb-3 pt-10">
-                <p className="text-sm font-medium text-[var(--color-cream-50)]">{item.caption}</p>
+              <div className="relative">
+                <ImagenBloque
+                  rutaBase={estilo.rutaBase}
+                  alt={estilo.alt}
+                  variant="sage"
+                  className="aspect-[4/3] w-full"
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                />
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-[var(--color-ink)]/75 to-transparent px-5 pb-4 pt-14">
+                  <h3 className="font-[var(--font-heading)] text-xl text-[var(--color-cream-50)]">
+                    {estilo.titulo}
+                  </h3>
+                </div>
+              </div>
+              <div className="p-6">
+                <div className="mb-3 flex flex-wrap gap-2">
+                  {estilo.etiquetas.map((etiqueta) => (
+                    <Badge key={etiqueta} tone="sage">
+                      {etiqueta}
+                    </Badge>
+                  ))}
+                </div>
+                <p className="text-sm leading-relaxed text-[var(--color-ink-soft)]">{estilo.descripcion}</p>
               </div>
             </div>
           ))}
