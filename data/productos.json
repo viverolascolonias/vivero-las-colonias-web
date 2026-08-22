@@ -629,9 +629,10 @@
     "precio": null,
     "disponible": true,
     "imagen": null,
-    "tipoFloracion": null,
-    "color": null,
-    "aromatica": null
+    "tipoFloracion": "Floribunda",
+    "color": "Rosado",
+    "aromatica": false,
+    "descripcion": "El Valentin Heart es un elegante rosal de tipo Floribunda, destacado por su abundante floración en tonos rosados y su atractivo follaje verde brillante. Su floración aporta color y delicadeza al jardín, siendo una excelente alternativa para crear borduras, macizos florales o destacar en espacios ornamentales."
   },
   {
     "id": "caeeebd106f5de811607b1217",
