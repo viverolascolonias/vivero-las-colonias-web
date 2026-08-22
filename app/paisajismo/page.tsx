@@ -1,12 +1,53 @@
 import type { Metadata } from "next";
 import Container from "@/app/components/ui/Container";
 import ImagenBloque from "@/app/components/ui/ImagenBloque";
+import SectionHeading from "@/app/components/ui/SectionHeading";
 import WhatsAppButton from "@/app/components/ui/WhatsAppButton";
 
 export const metadata: Metadata = {
   title: "Paisajismo — Vivero Las Colonias",
   description: "Diseño, instalación, mantención y asesoría de jardines por Vivero Las Colonias.",
 };
+
+// Imágenes de referencia (no son fotografías propias de Vivero Las
+// Colonias todavía) que muestran el tipo de jardín y paisajismo que se
+// puede realizar. Cada `rutaBase` sigue el mismo mecanismo que el resto
+// del sitio (ImagenBloque -> resolverImagenPublica): para reemplazar una
+// por una foto real de un proyecto propio, basta con subir el archivo con
+// el mismo nombre a esa ruta en /public -- no hace falta tocar este
+// componente ni rediseñar la sección.
+const GALERIA = [
+  {
+    rutaBase: "images/paisajismo/galeria/rosales",
+    alt: "Paisajismo con rosales como protagonistas",
+    caption: "Paisajismo con rosales",
+  },
+  {
+    rutaBase: "images/paisajismo/galeria/jardin-residencial",
+    alt: "Jardín residencial con macizos de flores",
+    caption: "Jardines residenciales",
+  },
+  {
+    rutaBase: "images/paisajismo/galeria/macizo-flores",
+    alt: "Macizo de flores de temporada",
+    caption: "Macizos de flores",
+  },
+  {
+    rutaBase: "images/paisajismo/galeria/entrada-casa",
+    alt: "Entrada de casa con jardín y accesos ajardinados",
+    caption: "Entradas y accesos",
+  },
+  {
+    rutaBase: "images/paisajismo/galeria/jardin-moderno",
+    alt: "Jardín moderno y elegante",
+    caption: "Jardines modernos",
+  },
+  {
+    rutaBase: "images/paisajismo/galeria/arbustos-flores",
+    alt: "Combinación de arbustos y flores en un sendero de jardín",
+    caption: "Arbustos y flores",
+  },
+];
 
 const SERVICIOS = [
   {
@@ -54,7 +95,33 @@ export default function PaisajismoPage() {
       </div>
 
       <Container className="py-16 md:py-20">
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <SectionHeading
+          eyebrow="Referencias de proyectos"
+          title="El estilo de jardín que podemos crear"
+          subtitle="Una muestra del tipo de paisajismo y composición que trabajamos: desde macizos de flores hasta jardines donde el rosal es el protagonista."
+        />
+
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {GALERIA.map((item) => (
+            <div
+              key={item.rutaBase}
+              className="group relative overflow-hidden rounded-2xl border border-[var(--color-border)]"
+            >
+              <ImagenBloque
+                rutaBase={item.rutaBase}
+                alt={item.alt}
+                variant="sage"
+                className="aspect-[4/3] w-full transition-transform duration-500 group-hover:scale-[1.03]"
+                sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+              />
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-[var(--color-ink)]/70 to-transparent px-4 pb-3 pt-10">
+                <p className="text-sm font-medium text-[var(--color-cream-50)]">{item.caption}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {SERVICIOS.map((s) => (
             <div
               key={s.titulo}
