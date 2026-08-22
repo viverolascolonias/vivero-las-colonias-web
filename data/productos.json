@@ -148,9 +148,10 @@
     "precio": null,
     "disponible": true,
     "imagen": null,
-    "tipoFloracion": null,
-    "color": null,
-    "aromatica": null
+    "tipoFloracion": "Floribunda",
+    "color": "Rosada",
+    "aromatica": false,
+    "descripcion": "El rosal Confeti es una variedad de gran atractivo ornamental, muy similar al reconocido Leonardo da Vinci, pero se distingue por sus flores en un intenso y luminoso tono fucsia. Sus flores son abundantes, llenas y de forma redondeada, con numerosos pétalos que le entregan una apariencia romántica y elegante."
   },
   {
     "id": "c37440226bb0cbe8fada59721",
@@ -343,9 +344,10 @@
     "precio": 5000,
     "disponible": true,
     "imagen": null,
-    "tipoFloracion": null,
-    "color": null,
-    "aromatica": null
+    "tipoFloracion": "Botonera",
+    "color": "Rojo",
+    "aromatica": false,
+    "descripcion": "El rosal Grand Gala es una atractiva variedad botonera, reconocida por sus elegantes botones de color rojo intenso, que destacan por su forma definida y su apariencia sofisticada. Su tonalidad profunda aporta fuerza y presencia al jardín, creando un hermoso contraste con el follaje verde."
   },
   {
     "id": "cbc187006b2b71555ddaf0ba2",
@@ -356,9 +358,10 @@
     "precio": 5000,
     "disponible": true,
     "imagen": null,
-    "tipoFloracion": null,
-    "color": null,
-    "aromatica": null
+    "tipoFloracion": "Floribunda",
+    "color": "Blanca",
+    "aromatica": false,
+    "descripcion": "El rosal Iceberg es una de las variedades floribundas más reconocidas y apreciadas por su abundante y prolongada floración. Produce numerosas flores de color blanco puro, que destacan por su luminosidad y contraste con el follaje verde brillante."
   },
   {
     "id": "ce45c37cd16705737e83485d4",
@@ -369,9 +372,10 @@
     "precio": null,
     "disponible": true,
     "imagen": null,
-    "tipoFloracion": null,
-    "color": null,
-    "aromatica": null
+    "tipoFloracion": "Floribunda",
+    "color": "Blanca",
+    "aromatica": false,
+    "descripcion": "El rosal Iceberg es una de las variedades floribundas más reconocidas y apreciadas por su abundante y prolongada floración. Produce numerosas flores de color blanco puro, que destacan por su luminosidad y contraste con el follaje verde brillante."
   },
   {
     "id": "cfc4cff13d946212113483d78",
@@ -382,9 +386,10 @@
     "precio": 5000,
     "disponible": true,
     "imagen": null,
-    "tipoFloracion": null,
-    "color": null,
-    "aromatica": null
+    "tipoFloracion": "Botonera",
+    "color": "Rosado fucsia",
+    "aromatica": false,
+    "descripcion": "El rosal María Callas destaca por sus flores grandes, elegantes y de aspecto clásico, en un intenso tono rosado, con pétalos abundantes que forman una floración sofisticada y muy llamativa. Su porte y la belleza de sus flores lo convierten en una variedad ideal para quienes buscan un rosal protagonista en el jardín."
   },
   {
     "id": "cd6cec683e69f8c49300c1bdb",
@@ -395,9 +400,10 @@
     "precio": 5000,
     "disponible": true,
     "imagen": null,
-    "tipoFloracion": null,
-    "color": null,
-    "aromatica": null
+    "tipoFloracion": "Botonera",
+    "color": "Blanco crema y rosa",
+    "aromatica": false,
+    "descripcion": "El rosal Océano destaca por sus grandes flores de aspecto elegante y romántico, en un delicado tono blanco cremoso con suaves matices rosados en el centro. Sus pétalos se disponen de manera armoniosa, formando una flor de apariencia clásica y muy ornamental."
   },
   {
     "id": "cmsm4713c000be97qay3togma",
@@ -408,9 +414,10 @@
     "precio": 5000,
     "disponible": true,
     "imagen": null,
-    "tipoFloracion": null,
-    "color": null,
-    "aromatica": null
+    "tipoFloracion": "Botonera",
+    "color": "Rojo oscuro",
+    "aromatica": true,
+    "descripcion": "El rosal Oklahoma es una clásica variedad Híbrida de Té, reconocida por sus grandes flores de rojo oscuro, profundo y aterciopelado, que en determinadas condiciones pueden adquirir una apariencia casi negra. Sus flores, de forma elegante y muy llena, destacan por su gran presencia ornamental."
   },
   {
     "id": "c1e31178be43b3468a0916fd8",
@@ -421,9 +428,10 @@
     "precio": 5000,
     "disponible": true,
     "imagen": null,
-    "tipoFloracion": null,
-    "color": null,
-    "aromatica": null
+    "tipoFloracion": "Floribunda",
+    "color": "rosado y palo rosa",
+    "aromatica": false,
+    "descripcion": "El rosal Payaso es una variedad Floribunda de gran atractivo ornamental, destacada por sus flores de coloración variegada, donde se combinan tonos intensos que crean un efecto alegre y llamativo en cada flor."
   },
   {
     "id": "cmsm3nde60008e97qujkeyy1t",
@@ -434,9 +442,10 @@
     "precio": 5000,
     "disponible": true,
     "imagen": null,
-    "tipoFloracion": null,
-    "color": null,
-    "aromatica": null
+    "tipoFloracion": "Botonera",
+    "color": "Rojo oscuro terciopelo",
+    "aromatica": false,
+    "descripcion": "El rosal Perla Negra es una variedad Híbrida de Té de gran presencia ornamental, reconocida por sus elegantes flores de rojo oscuro, profundo y aterciopelado, que bajo ciertas condiciones pueden adquirir tonalidades casi negras."
   },
   {
     "id": "c55dbea1bfb653e05fa5d66ab",
@@ -447,9 +456,10 @@
     "precio": 5000,
     "disponible": true,
     "imagen": null,
-    "tipoFloracion": null,
-    "color": null,
-    "aromatica": null
+    "tipoFloracion": "Botonera",
+    "color": "Roja betas rosadas",
+    "aromatica": false,
+    "descripcion": "El rosal Red Panther es una variedad de gran atractivo ornamental, reconocida por sus espectaculares flores bicolor en tonos rojo fucsia y blanco, con pétalos marcados por pinceladas y vetas irregulares que hacen que cada flor tenga un diseño único."
   },
   {
     "id": "cfb3519c4f0887ac63955d1f7",
@@ -460,9 +470,10 @@
     "precio": 5000,
     "disponible": true,
     "imagen": null,
-    "tipoFloracion": null,
-    "color": null,
-    "aromatica": null
+    "tipoFloracion": "Floribunda",
+    "color": "Naranja",
+    "aromatica": false,
+    "descripcion": "El rosal Rock and Roll es una atractiva variedad Floribunda, destacada por sus flores de intenso color anaranjado, que aportan calidez, energía y un fuerte atractivo visual al jardín. Su tonalidad vibrante destaca especialmente sobre el follaje verde, convirtiéndolo en una excelente opción para crear puntos de color."
   },
   {
     "id": "c4e1c126859030f43dd2f6a8e",
@@ -473,9 +484,10 @@
     "precio": null,
     "disponible": true,
     "imagen": null,
-    "tipoFloracion": null,
-    "color": null,
-    "aromatica": null
+    "tipoFloracion": "Floribunda",
+    "color": "Naranja",
+    "aromatica": false,
+    "descripcion": "El rosal Rock and Roll es una atractiva variedad Floribunda, destacada por sus flores de intenso color anaranjado, que aportan calidez, energía y un fuerte atractivo visual al jardín. Su tonalidad vibrante destaca especialmente sobre el follaje verde, convirtiéndolo en una excelente opción para crear puntos de color."
   },
   {
     "id": "c207ae5939057c8ce006859c3",
@@ -486,9 +498,10 @@
     "precio": null,
     "disponible": true,
     "imagen": null,
-    "tipoFloracion": null,
-    "color": null,
-    "aromatica": null
+    "tipoFloracion": "Floribunda",
+    "color": "Naranja",
+    "aromatica": false,
+    "descripcion": "El rosal Rock and Roll es una atractiva variedad Floribunda, destacada por sus flores de intenso color anaranjado, que aportan calidez, energía y un fuerte atractivo visual al jardín. Su tonalidad vibrante destaca especialmente sobre el follaje verde, convirtiéndolo en una excelente opción para crear puntos de color."
   },
   {
     "id": "c033acf9477b4f2986eebb075",
@@ -499,9 +512,10 @@
     "precio": 5000,
     "disponible": true,
     "imagen": null,
-    "tipoFloracion": null,
-    "color": null,
-    "aromatica": null
+    "tipoFloracion": "Grandiflora",
+    "color": "Rosado Anaranjado",
+    "aromatica": false,
+    "descripcion": "El rosal Salmón Angy es una elegante variedad Híbrida de Té, reconocida por sus grandes flores en un atractivo tono salmón, con matices cálidos que aportan luminosidad y sofisticación al jardín. Sus flores presentan una forma clásica y bien definida, destacando especialmente en estado de botón y al abrir completamente."
   },
   {
     "id": "c67bcee2eac7f16e1cc0600ef",
@@ -512,9 +526,10 @@
     "precio": 5000,
     "disponible": true,
     "imagen": null,
-    "tipoFloracion": null,
-    "color": null,
-    "aromatica": null
+    "tipoFloracion": "Botonera",
+    "color": "Beige",
+    "aromatica": false,
+    "descripcion": "El rosal Santa Fe es una atractiva variedad botonera, reconocida por sus elegantes botones de color beige, de tonalidad suave y sofisticada. Su floración aporta un aspecto delicado y distinguido, ideal para quienes buscan incorporar colores neutros y cálidos al jardín."
   },
   {
     "id": "c6089444f4942503dee90b135",
@@ -525,9 +540,10 @@
     "precio": 5000,
     "disponible": true,
     "imagen": null,
-    "tipoFloracion": null,
-    "color": null,
-    "aromatica": null
+    "tipoFloracion": "Botonera",
+    "color": "Naranja",
+    "aromatica": false,
+    "descripcion": "El rosal Sensación Naranja es una atractiva variedad de Híbrida de Té, reconocida por sus grandes flores en intensos tonos naranjas, que aportan energía y calidez al jardín. Sus flores presentan una forma elegante y bien definida, destacando por su color vibrante y excelente presencia ornamental."
   },
   {
     "id": "ce73f2a21192834dc1b3257e6",
@@ -538,9 +554,10 @@
     "precio": 5000,
     "disponible": true,
     "imagen": null,
-    "tipoFloracion": null,
-    "color": null,
-    "aromatica": null
+    "tipoFloracion": "Floribunda",
+    "color": "Rojo fluorescente",
+    "aromatica": false,
+    "descripcion": "El rosal Sevillana es una variedad Floribunda de gran atractivo ornamental, reconocida por sus flores de color rojo intenso y brillante, que destacan sobre su follaje verde y aportan un fuerte contraste al jardín. Su floración abundante y recurrente permite disfrutar de color durante gran parte de la temporada."
   },
   {
     "id": "ca8840b36bd64959fc4be8986",
@@ -551,9 +568,10 @@
     "precio": null,
     "disponible": true,
     "imagen": null,
-    "tipoFloracion": null,
-    "color": null,
-    "aromatica": null
+    "tipoFloracion": "Floribunda",
+    "color": "Rojo fluorescente",
+    "aromatica": false,
+    "descripcion": "El rosal Sevillana es una variedad Floribunda de gran atractivo ornamental, reconocida por sus flores de color rojo intenso y brillante, que destacan sobre su follaje verde y aportan un fuerte contraste al jardín. Su floración abundante y recurrente permite disfrutar de color durante gran parte de la temporada."
   },
   {
     "id": "cmsm4c7ot000ee97qg6jpqlfa",
@@ -564,9 +582,10 @@
     "precio": 12000,
     "disponible": true,
     "imagen": null,
-    "tipoFloracion": null,
-    "color": null,
-    "aromatica": null
+    "tipoFloracion": "Floribunda",
+    "color": "Rojo fluorescente",
+    "aromatica": false,
+    "descripcion": "El rosal Sevillana es una variedad Floribunda de gran atractivo ornamental, reconocida por sus flores de color rojo intenso y brillante, que destacan sobre su follaje verde y aportan un fuerte contraste al jardín. Su floración abundante y recurrente permite disfrutar de color durante gran parte de la temporada."
   },
   {
     "id": "cmsnvjw9n001d9e7qp6h3cfd7",
@@ -577,9 +596,10 @@
     "precio": 5000,
     "disponible": true,
     "imagen": null,
-    "tipoFloracion": null,
-    "color": null,
-    "aromatica": null
+    "tipoFloracion": "Grandiflora",
+    "color": "Naranja",
+    "aromatica": false,
+    "descripcion": "El rosal Sorina es una atractiva variedad Semi Floribunda, reconocida por sus delicados botones pequeños de color naranja, que aportan un toque cálido, alegre y elegante al jardín. Su formato de botón le entrega una apariencia fina y compacta, especialmente atractiva durante la etapa de floración."
   },
   {
     "id": "c486cb18c1392fa1c34d734f1",
@@ -590,9 +610,10 @@
     "precio": null,
     "disponible": true,
     "imagen": null,
-    "tipoFloracion": null,
-    "color": null,
-    "aromatica": null
+    "tipoFloracion": "Floribunda",
+    "color": "Rojo burdeos",
+    "aromatica": false,
+    "descripcion": "El rosal Texas es una variedad trepadora de floribunda, destacada por sus elegantes flores de color rojo burdeos intenso, con una tonalidad profunda que en determinadas condiciones puede adquirir un atractivo aspecto aterciopelado."
   },
   {
     "id": "cce4d0147e9d3289bc88cc1b7",
@@ -603,9 +624,10 @@
     "precio": 5000,
     "disponible": true,
     "imagen": null,
-    "tipoFloracion": null,
-    "color": null,
-    "aromatica": null
+    "tipoFloracion": "Botonera",
+    "color": "Roja y amarillo",
+    "aromatica": false,
+    "descripcion": "El rosal Tigre, también conocido como Tigre Abracadabra, es una llamativa variedad de Híbrida de Té que destaca por su particular combinación de colores. Sus flores presentan pétalos con franjas y pinceladas en tonos rojos, rosados y amarillos, creando un efecto rayado único en cada flor."
   },
   {
     "id": "c679f00408109792920722129",
@@ -616,9 +638,10 @@
     "precio": 5000,
     "disponible": true,
     "imagen": null,
-    "tipoFloracion": null,
-    "color": null,
-    "aromatica": null
+    "tipoFloracion": "Botonera",
+    "color": "Blanco puro",
+    "aromatica": false,
+    "descripcion": "El rosal Tineke es una elegante variedad Híbrida de Té, reconocida por sus grandes flores de blanco puro, de forma clásica y muy llena. Sus botones presentan una forma puntiaguda y se abren lentamente hasta formar flores grandes, dobles y de aspecto refinado, destacando por su excelente presentación tanto en el jardín como como flor de corte."
   },
   {
     "id": "c80c898d1bb1357c5e19e8663",
@@ -643,8 +666,9 @@
     "precio": 5000,
     "disponible": true,
     "imagen": null,
-    "tipoFloracion": null,
-    "color": null,
-    "aromatica": null
+    "tipoFloracion": "Floribunda",
+    "color": "Amarillo ámbar",
+    "aromatica": true,
+    "descripcion": "El rosal Whisky es una variedad de Híbrida de Té reconocida por sus grandes flores de tonalidad amarillo dorado a amarillo ámbar, que aportan un color cálido y elegante al jardín. Sus flores presentan una forma clásica y bien definida, destacando especialmente cuando se encuentran completamente abiertas."
   }
 ]
