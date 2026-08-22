@@ -7,6 +7,7 @@ import { useCarrito } from "@/app/components/carrito/CarritoContext";
 import DatosClienteForm from "@/app/components/carrito/DatosClienteForm";
 import { formatCLP } from "@/lib/format";
 import { LIMITAR_POR_STOCK } from "@/lib/config";
+import { resolverPrecioUnitario } from "@/lib/precios";
 import { abrirWhatsApp } from "@/lib/whatsapp";
 import {
   construirMensajeWhatsApp,
@@ -76,6 +77,7 @@ export default function CarritoPage() {
             <ul className="divide-y divide-[var(--color-border)] rounded-2xl border border-[var(--color-border)] bg-[var(--color-cream-50)]">
               {items.map((item) => {
                 const enMaximo = LIMITAR_POR_STOCK && item.cantidad >= item.stock;
+                const { precio: precioUnitario, tramo } = resolverPrecioUnitario(item, item.cantidad);
                 return (
                   <li key={item.productoId} className="flex items-center gap-4 p-5">
                     <div className="min-w-0 flex-1">
@@ -86,8 +88,18 @@ export default function CarritoPage() {
                         <p className="text-xs text-[var(--color-ink-soft)]">{item.subcategoria}</p>
                       )}
                       <p className="mt-1 text-sm text-[var(--color-ink)]">
-                        {item.precio != null ? formatCLP(item.precio) : "Consultar precio"}
+                        {precioUnitario != null ? `${formatCLP(precioUnitario)} c/u` : "Consultar precio"}
+                        {tramo && (
+                          <span className="ml-2 inline-flex items-center rounded-full bg-[var(--color-cream-200)] px-2 py-0.5 text-xs font-medium text-[var(--color-forest-dark)]">
+                            {tramo}
+                          </span>
+                        )}
                       </p>
+                      {precioUnitario != null && (
+                        <p className="mt-0.5 text-xs text-[var(--color-ink-soft)]">
+                          Subtotal: {formatCLP(precioUnitario * item.cantidad)}
+                        </p>
+                      )}
                       {LIMITAR_POR_STOCK && item.stock <= 5 && (
                         <p className="mt-0.5 text-xs text-[var(--color-earth)]">
                           Quedan {item.stock} disponible{item.stock === 1 ? "" : "s"}.

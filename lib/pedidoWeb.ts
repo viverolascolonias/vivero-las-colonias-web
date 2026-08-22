@@ -1,4 +1,5 @@
 import { formatCLP } from "@/lib/format";
+import { resolverPrecioUnitario } from "@/lib/precios";
 import type { ItemCarrito } from "@/app/components/carrito/CarritoContext";
 
 export type TipoEntregaWeb = "despacho" | "retiro" | "transporte";
@@ -62,8 +63,10 @@ export function generarReferenciaPedido(): string {
 }
 
 function lineaPrecio(item: ItemCarrito): string {
-  if (item.precio == null) return `${item.cantidad} x A confirmar`;
-  return `${item.cantidad} x ${formatCLP(item.precio)} = ${formatCLP(item.precio * item.cantidad)}`;
+  const { precio, tramo } = resolverPrecioUnitario(item, item.cantidad);
+  if (precio == null) return `${item.cantidad} x A confirmar`;
+  const sufijoTramo = tramo ? ` (${tramo})` : "";
+  return `${item.cantidad} x ${formatCLP(precio)}${sufijoTramo} = ${formatCLP(precio * item.cantidad)}`;
 }
 
 /** Arma el texto del pedido para enviar por WhatsApp — el cliente nunca
@@ -74,8 +77,11 @@ export function construirMensajeWhatsApp(
   datos: DatosClienteWeb,
   referencia: string
 ): string {
-  const totalEstimado = items.reduce((acc, i) => acc + (i.precio ?? 0) * i.cantidad, 0);
-  const hayPreciosPorConfirmar = items.some((i) => i.precio == null);
+  const totalEstimado = items.reduce(
+    (acc, i) => acc + (resolverPrecioUnitario(i, i.cantidad).precio ?? 0) * i.cantidad,
+    0
+  );
+  const hayPreciosPorConfirmar = items.some((i) => resolverPrecioUnitario(i, i.cantidad).precio == null);
 
   const lineasProductos = items
     .map((i) => `🌹 ${i.nombre}${i.subcategoria ? ` (${i.subcategoria})` : ""} — ${lineaPrecio(i)}`)

@@ -7,6 +7,7 @@
 
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import { LIMITAR_POR_STOCK } from "@/lib/config";
+import { resolverPrecioUnitario } from "@/lib/precios";
 
 /** Mientras LIMITAR_POR_STOCK esté apagado, ningún producto activo del
  * catálogo queda bloqueado por su stock real (todavía no cargado en el
@@ -90,7 +91,8 @@ export function CarritoProvider({ children }: { children: React.ReactNode }) {
 
   const cantidadTotal = useMemo(() => items.reduce((acc, i) => acc + i.cantidad, 0), [items]);
   const totalEstimado = useMemo(
-    () => items.reduce((acc, i) => acc + (i.precio ?? 0) * i.cantidad, 0),
+    () =>
+      items.reduce((acc, i) => acc + (resolverPrecioUnitario(i, i.cantidad).precio ?? 0) * i.cantidad, 0),
     [items]
   );
 

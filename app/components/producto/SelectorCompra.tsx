@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/app/components/ui/Button";
+import { formatCLP } from "@/lib/format";
 import { useCompraRapida } from "./useCompraRapida";
 import type { Producto } from "@/lib/types";
 
@@ -8,7 +9,8 @@ import type { Producto } from "@/lib/types";
 // lógica de compra vive en useCompraRapida, compartida con el modal de
 // compra rápida del catálogo.
 export default function SelectorCompra({ producto }: { producto: Producto }) {
-  const { cantidad, restar, sumar, agregado, agregar, stockMaximo, enMaximo } = useCompraRapida(producto);
+  const { cantidad, restar, sumar, agregado, agregar, stockMaximo, enMaximo, precioUnitario, tramo } =
+    useCompraRapida(producto);
 
   if (!producto.disponible) {
     return (
@@ -20,6 +22,16 @@ export default function SelectorCompra({ producto }: { producto: Producto }) {
 
   return (
     <div>
+      {precioUnitario != null && (
+        <p className="mb-2 text-sm text-[var(--color-ink)]">
+          {formatCLP(precioUnitario)} c/u
+          {tramo && (
+            <span className="ml-2 inline-flex items-center rounded-full bg-[var(--color-cream-200)] px-2 py-0.5 text-xs font-medium text-[var(--color-forest-dark)]">
+              {tramo}
+            </span>
+          )}
+        </p>
+      )}
       <div className="flex items-center gap-3">
         <div className="flex items-center justify-center rounded-full border border-[var(--color-border)]">
           <button

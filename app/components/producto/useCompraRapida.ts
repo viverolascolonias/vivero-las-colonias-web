@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useCarrito } from "@/app/components/carrito/CarritoContext";
 import { LIMITAR_POR_STOCK } from "@/lib/config";
+import { resolverPrecioUnitario } from "@/lib/precios";
 import type { Producto } from "@/lib/types";
 
 // Estado y lógica de compra (cantidad + agregar al carrito) compartidos
@@ -56,5 +57,17 @@ export function useCompraRapida(producto: Producto, options?: { sincronizarConCa
     setTimeout(() => setAgregado(false), 2000);
   }
 
-  return { cantidad, restar, sumar, agregado, agregar, stockMaximo, enMaximo: cantidad >= stockMaximo };
+  const { precio: precioUnitario, tramo } = resolverPrecioUnitario(producto, cantidad);
+
+  return {
+    cantidad,
+    restar,
+    sumar,
+    agregado,
+    agregar,
+    stockMaximo,
+    enMaximo: cantidad >= stockMaximo,
+    precioUnitario,
+    tramo,
+  };
 }

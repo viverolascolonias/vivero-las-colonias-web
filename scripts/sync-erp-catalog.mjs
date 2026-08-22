@@ -31,18 +31,16 @@ const WEB_IMAGES_DIR = resolve(ROOT, "public", "images", "rosales");
 
 const EXTENSIONES_IMAGEN = ["jpg", "jpeg", "png", "webp"];
 
-// Tarifa pública base para Rosal/Arbustiva baja (clasificación "Cliente
-// detalle" en el ERP). Para esta subcategoría el precio real no vive en la
-// columna precioVenta del catálogo -- se resuelve automáticamente según el
-// cliente -- así que usamos la misma tarifa base que ya aplica el ERP para
-// cualquier comprador sin clasificación especial.
-//
-// IMPORTANTE: este número debe coincidir siempre con
-// tarifaArbustivaBaja("detalle", ...) en lib/clasificacion.ts del ERP (ahí
-// vive la lógica real; acá solo se refleja el valor porque son dos
-// proyectos/runtimes separados sin un paquete compartido). Si ese valor
-// cambia en el ERP, hay que actualizarlo acá también.
+// Tarifas propias de rosal por subcategoría, fijadas explícitamente por el
+// vivero (no vienen de Producto.precioVenta del ERP para estas 3). Este es
+// el precio "de partida" (1 unidad) que se muestra en catálogo y ficha; el
+// tramo por cantidad de Arbustiva baja se resuelve en vivo en el carrito,
+// ver lib/precios.ts (gemelo exacto de estos mismos valores -- este script
+// no puede importar ese archivo TypeScript al ser Node plano). NO cambiar
+// estos números sin confirmación directa del vivero.
 const TARIFA_ARBUSTIVA_BAJA_DETALLE = 5000;
+const TARIFA_MEDIO_PIE = 8500;
+const TARIFA_TREPADORA = 12000;
 
 // Gemelo de lib/config.ts (LIMITAR_POR_STOCK) -- este script no puede
 // importar ese archivo TypeScript directamente al ser Node plano, así que
@@ -160,6 +158,8 @@ function sincronizarFoto(slug, fotoUrlErp) {
 
 function resolverPrecioPublico(fila) {
   if (fila.subcategoria === "Arbustiva baja") return TARIFA_ARBUSTIVA_BAJA_DETALLE;
+  if (fila.subcategoria === "Medio pie") return TARIFA_MEDIO_PIE;
+  if (fila.subcategoria === "Trepadora") return TARIFA_TREPADORA;
   const precio = Math.round(Number(fila.precioVenta) || 0);
   return precio > 0 ? precio : null; // null => "Consultar precio" en la web
 }

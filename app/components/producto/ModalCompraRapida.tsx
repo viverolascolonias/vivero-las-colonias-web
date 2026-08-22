@@ -20,9 +20,8 @@ export default function ModalCompraRapida({
   imagen: string | null;
   onClose: () => void;
 }) {
-  const { cantidad, restar, sumar, agregado, agregar, stockMaximo, enMaximo } = useCompraRapida(producto, {
-    sincronizarConCarrito: true,
-  });
+  const { cantidad, restar, sumar, agregado, agregar, stockMaximo, enMaximo, precioUnitario, tramo } =
+    useCompraRapida(producto, { sincronizarConCarrito: true });
 
   useEffect(() => {
     const previo = document.body.style.overflow;
@@ -87,7 +86,12 @@ export default function ModalCompraRapida({
         </div>
 
         <p className="mt-4 text-sm text-[var(--color-ink-soft)]">
-          {producto.precio != null ? `${formatCLP(producto.precio)} por unidad` : "Consultar precio"}
+          {precioUnitario != null ? `${formatCLP(precioUnitario)} por unidad` : "Consultar precio"}
+          {tramo && (
+            <span className="ml-2 inline-flex items-center rounded-full bg-[var(--color-cream-200)] px-2 py-0.5 text-xs font-medium text-[var(--color-forest-dark)]">
+              {tramo}
+            </span>
+          )}
         </p>
 
         {producto.disponible ? (
