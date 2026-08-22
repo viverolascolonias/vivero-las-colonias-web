@@ -18,11 +18,13 @@ export default function Hero() {
           Rosales, plantas y vida para crear espacios únicos.
         </p>
         <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
-          <LinkButton href="/rosales">Ver rosales</LinkButton>
+          <LinkButton href="/rosales" className="shadow-lg shadow-black/30">
+            Ver rosales
+          </LinkButton>
           <LinkButton
             href="/plantas"
             variant="secondary"
-            className="border-[var(--color-cream-50)] text-[var(--color-cream-50)] hover:bg-[var(--color-cream-50)] hover:text-[var(--color-forest-dark)]"
+            className="border-[var(--color-cream-50)]/80 bg-[var(--color-cream-50)]/90 text-[var(--color-forest-dark)] shadow-lg shadow-black/20 backdrop-blur-sm hover:border-[var(--color-forest-dark)] hover:bg-[var(--color-forest-dark)] hover:text-[var(--color-cream-50)]"
           >
             Ver plantas
           </LinkButton>
