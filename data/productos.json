@@ -299,9 +299,9 @@
     "disponible": true,
     "imagen": null,
     "tipoFloracion": "Grandiflora",
-    "color": "Rosado, coral y crema",
+    "color": "Rosado, blanco",
     "aromatica": false,
-    "descripcion": "Flaming 2.0 es un rosal de flor grande y elegante, con una combinación de tonos rosado intenso, coral y crema. Sus pétalos presentan bordes rosados marcados y un centro más claro, creando un contraste cálido y delicado. La flor tiene una forma clásica y bien definida, destacando por su coloración bicolor."
+    "descripcion": "Flaming 2.0 es un rosal de flor grande y elegante, con una combinación de tonos rosado intenso, y su contraste blanco. Sus pétalos presentan bordes rosados marcados y un centro más claro, creando un contraste cálido y delicado. La flor tiene una forma clásica y bien definida, destacando por su coloración bicolor."
   },
   {
     "id": "c9b6665101c7e317dbea63555",
@@ -314,10 +314,10 @@
     "stock": 0,
     "disponible": true,
     "imagen": null,
-    "tipoFloracion": "Botonera",
-    "color": "Fucsia, rosado intenso",
+    "tipoFloracion": "Floribunda",
+    "color": "Rosado y blanco crema",
     "aromatica": false,
-    "descripcion": "Flaming Pieces es un rosal de flor grande y muy vistosa, con pétalos en un intenso tono fucsia-rosado, que adquieren una tonalidad más clara hacia el centro. Su flor presenta una forma elegante y bien definida, con abundantes pétalos y gran presencia ornamental."
+    "descripcion": "Flaming Pieces es un rosal de flor grande y muy vistosa, con pétalos en un intenso tono rosado y amarillo crema, que adquieren una tonalidad más clara hacia el centro. Su flor presenta una forma elegante y bien definida, con abundantes pétalos y gran presencia ornamental."
   },
   {
     "id": "c9f67cc2ae42674e0590f5f59",
@@ -330,10 +330,10 @@
     "stock": 0,
     "disponible": true,
     "imagen": null,
-    "tipoFloracion": "Botonera",
-    "color": "Fucsia, rosado intenso",
+    "tipoFloracion": "Floribunda",
+    "color": "Rosado y blanco crema",
     "aromatica": false,
-    "descripcion": "Flaming Pieces es un rosal de flor grande y muy vistosa, con pétalos en un intenso tono fucsia-rosado, que adquieren una tonalidad más clara hacia el centro. Su flor presenta una forma elegante y bien definida, con abundantes pétalos y gran presencia ornamental."
+    "descripcion": "Flaming Pieces es un rosal de flor grande y muy vistosa, con pétalos en un intenso tono rosado y amarillo crema, que adquieren una tonalidad más clara hacia el centro. Su flor presenta una forma elegante y bien definida, con abundantes pétalos y gran presencia ornamental."
   },
   {
     "id": "c721bafb4f476c2331d512164",
