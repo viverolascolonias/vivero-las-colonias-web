@@ -20,7 +20,7 @@ export default function ModalCompraRapida({
   imagen: string | null;
   onClose: () => void;
 }) {
-  const { cantidad, restar, sumar, agregado, agregar } = useCompraRapida(producto, {
+  const { cantidad, restar, sumar, agregado, agregar, stockMaximo, enMaximo } = useCompraRapida(producto, {
     sincronizarConCarrito: true,
   });
 
@@ -108,13 +108,19 @@ export default function ModalCompraRapida({
                 <span className="min-w-10 text-center text-sm">{cantidad}</span>
                 <button
                   type="button"
-                  className="px-4 py-2.5 text-[var(--color-forest-dark)]"
+                  className="px-4 py-2.5 text-[var(--color-forest-dark)] disabled:opacity-40"
                   onClick={sumar}
+                  disabled={enMaximo}
                   aria-label={`Sumar cantidad de ${producto.nombre}`}
                 >
                   +
                 </button>
               </div>
+              {stockMaximo <= 5 && (
+                <p className="mt-1.5 text-xs text-[var(--color-earth)]">
+                  Quedan {stockMaximo} disponible{stockMaximo === 1 ? "" : "s"}.
+                </p>
+              )}
             </div>
 
             <button

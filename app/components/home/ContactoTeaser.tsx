@@ -1,11 +1,12 @@
 import Container from "@/app/components/ui/Container";
 import { LinkButton } from "@/app/components/ui/Button";
+import { linkWhatsApp } from "@/lib/whatsapp";
 
 const CANALES = [
   {
     label: "WhatsApp",
     valor: "+56 9 2365 2575",
-    href: "https://wa.me/56923652575",
+    href: linkWhatsApp(""),
     icono: (
       <path
         d="M7 3.5h2.2l1.2 4-2 1.4a10 10 0 0 0 4.7 4.7l1.4-2 4 1.2V15a2 2 0 0 1-2 2C10.6 17 4.9 11.3 4.9 5.5a2 2 0 0 1 2-2z"

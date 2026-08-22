@@ -36,7 +36,22 @@ const EXTENSIONES_IMAGEN = ["jpg", "jpeg", "png", "webp"];
 // columna precioVenta del catálogo -- se resuelve automáticamente según el
 // cliente -- así que usamos la misma tarifa base que ya aplica el ERP para
 // cualquier comprador sin clasificación especial.
+//
+// IMPORTANTE: este número debe coincidir siempre con
+// tarifaArbustivaBaja("detalle", ...) en lib/clasificacion.ts del ERP (ahí
+// vive la lógica real; acá solo se refleja el valor porque son dos
+// proyectos/runtimes separados sin un paquete compartido). Si ese valor
+// cambia en el ERP, hay que actualizarlo acá también.
 const TARIFA_ARBUSTIVA_BAJA_DETALLE = 5000;
+
+// Gemelo de lib/config.ts (LIMITAR_POR_STOCK) -- este script no puede
+// importar ese archivo TypeScript directamente al ser Node plano, así que
+// se mantiene sincronizado a mano. Con esto en `false`, todo producto
+// activo queda "disponible" para poder seleccionarse y agregarse al
+// carrito aunque el ERP todavía no tenga stock real cargado; el número de
+// stock real se sigue exportando igual (ver más abajo), listo para cuando
+// se active el límite.
+const LIMITAR_POR_STOCK = false;
 
 function exportarDesdeErp() {
   if (!existsSync(DB_PATH)) {
@@ -47,7 +62,8 @@ function exportarDesdeErp() {
   }
 
   const query =
-    "SELECT p.id, p.nombre, p.categoria, p.subcategoria, p.precioVenta, p.fotoUrl AS productoFotoUrl, " +
+    "SELECT p.id, p.nombre, p.categoria, p.subcategoria, p.precioVenta, p.stockActual, " +
+    "p.fotoUrl AS productoFotoUrl, " +
     "v.tipoFloracion AS tipoFloracion, v.color AS color, v.aromatica AS aromatica, v.resumen AS resumen " +
     "FROM Producto p LEFT JOIN VariedadRosal v ON v.id = p.variedadRosalId " +
     "WHERE p.estado = 'Activo' ORDER BY p.nombre, p.subcategoria;";
@@ -58,11 +74,26 @@ function exportarDesdeErp() {
 
   const filas = JSON.parse(salida || "[]");
 
+  // Tramos de precio por cantidad (ej. +50 unidades = $4.200). Hoy la tabla
+  // está vacía en el ERP -- se deja lista para cuando el usuario cargue
+  // tramos reales ahí, sin que este script necesite cambiar.
+  const escalasQuery = "SELECT productoId, cantidadMinima, precio FROM PrecioPorCantidad ORDER BY cantidadMinima;";
+  const escalasSalida = execFileSync("sqlite3", ["-json", DB_PATH, escalasQuery], { encoding: "utf-8" });
+  const escalasFilas = JSON.parse(escalasSalida || "[]");
+  const escalasPorProducto = new Map();
+  for (const e of escalasFilas) {
+    const lista = escalasPorProducto.get(e.productoId) ?? [];
+    lista.push({ cantidadMinima: e.cantidadMinima, precio: Math.round(Number(e.precio) || 0) });
+    escalasPorProducto.set(e.productoId, lista);
+  }
+
   let fotosSincronizadas = 0;
 
   const productos = filas.map((fila) => {
     const slug = slugify(`${fila.nombre}${fila.subcategoria ? "-" + fila.subcategoria : ""}`);
     if (sincronizarFoto(slug, fila.productoFotoUrl)) fotosSincronizadas++;
+
+    const stock = Math.max(0, Math.round(Number(fila.stockActual) || 0));
 
     return {
       id: fila.id,
@@ -71,11 +102,15 @@ function exportarDesdeErp() {
       categoria: fila.categoria,
       subcategoria: fila.subcategoria ?? null,
       precio: resolverPrecioPublico(fila),
-      // Disponibilidad mock: el ERP todavía no tiene stock inicial cargado
-      // para estas variedades, así que no se debe mostrar como si fuera
-      // real. Se deja como disponible por defecto para poder maquetar la
-      // web; se reemplaza por el stock real cuando exista la conexión.
-      disponible: true,
+      escalasPrecio: escalasPorProducto.get(fila.id) ?? [],
+      // Stock real del ERP -- se exporta siempre, independientemente de si
+      // el límite está activo, para que la estructura esté lista de
+      // antemano. `disponible` solo se deriva del stock cuando
+      // LIMITAR_POR_STOCK está activo; mientras esté en `false`, cualquier
+      // producto activo del catálogo queda disponible para agregarse al
+      // carrito aunque su stock real todavía sea 0.
+      stock,
+      disponible: LIMITAR_POR_STOCK ? stock > 0 : true,
       imagen: null,
       tipoFloracion: fila.tipoFloracion ?? null,
       color: fila.color ?? null,

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useCarrito } from "@/app/components/carrito/CarritoContext";
+import { LIMITAR_POR_STOCK } from "@/lib/config";
 import type { Producto } from "@/lib/types";
 
 // Estado y lógica de compra (cantidad + agregar al carrito) compartidos
@@ -18,7 +19,13 @@ export function useCompraRapida(producto: Producto, options?: { sincronizarConCa
   const sincronizar = options?.sincronizarConCarrito ?? false;
   const itemEnCarrito = items.find((i) => i.productoId === producto.id);
 
-  const [cantidad, setCantidad] = useState(sincronizar ? (itemEnCarrito?.cantidad ?? 1) : 1);
+  // Con LIMITAR_POR_STOCK apagado, el stock real (todavía no cargado en el
+  // ERP para la mayoría de los productos) no bloquea la compra -- se sigue
+  // guardando y pasando al carrito igual, listo para cuando se active.
+  const stockMaximo = LIMITAR_POR_STOCK ? Math.max(0, producto.stock) : Infinity;
+  const [cantidad, setCantidad] = useState(
+    Math.min(stockMaximo, sincronizar ? (itemEnCarrito?.cantidad ?? 1) : 1)
+  );
   const [agregado, setAgregado] = useState(false);
 
   function restar() {
@@ -26,7 +33,7 @@ export function useCompraRapida(producto: Producto, options?: { sincronizarConCa
   }
 
   function sumar() {
-    setCantidad((c) => c + 1);
+    setCantidad((c) => Math.min(stockMaximo, c + 1));
   }
 
   function agregar() {
@@ -40,6 +47,7 @@ export function useCompraRapida(producto: Producto, options?: { sincronizarConCa
           nombre: producto.nombre,
           subcategoria: producto.subcategoria,
           precio: producto.precio,
+          stock: producto.stock,
         },
         cantidad
       );
@@ -48,5 +56,5 @@ export function useCompraRapida(producto: Producto, options?: { sincronizarConCa
     setTimeout(() => setAgregado(false), 2000);
   }
 
-  return { cantidad, restar, sumar, agregado, agregar };
+  return { cantidad, restar, sumar, agregado, agregar, stockMaximo, enMaximo: cantidad >= stockMaximo };
 }

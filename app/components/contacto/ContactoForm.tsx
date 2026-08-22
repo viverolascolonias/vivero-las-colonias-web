@@ -2,8 +2,7 @@
 
 import { useState } from "react";
 import { Button } from "@/app/components/ui/Button";
-
-const WHATSAPP_NUMERO = "56923652575";
+import { abrirWhatsApp } from "@/lib/whatsapp";
 
 // Sin backend propio todavía: arma un mensaje de WhatsApp prellenado con lo
 // que la persona escribió, para no dejar el formulario como una pantalla
@@ -17,8 +16,7 @@ export default function ContactoForm() {
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!puedeEnviar) return;
-    const texto = `Hola, soy ${nombre}. ${mensaje}`;
-    window.open(`https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(texto)}`, "_blank");
+    abrirWhatsApp(`Hola, soy ${nombre}. ${mensaje}`);
   }
 
   return (

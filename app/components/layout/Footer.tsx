@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import Container from "@/app/components/ui/Container";
+import { linkWhatsApp } from "@/lib/whatsapp";
 
 export default function Footer() {
   return (
@@ -45,7 +46,7 @@ export default function Footer() {
           <ul className="space-y-2.5 text-sm text-[var(--color-ink)]">
             <li>
               <a
-                href="https://wa.me/56923652575"
+                href={linkWhatsApp("")}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-[var(--color-forest)]"

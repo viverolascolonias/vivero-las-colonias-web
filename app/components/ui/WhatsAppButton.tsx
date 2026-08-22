@@ -1,4 +1,4 @@
-const WHATSAPP_NUMERO = "56923652575"; // +56 9 2365 2575
+import { linkWhatsApp } from "@/lib/whatsapp";
 
 export default function WhatsAppButton({
   mensaje = "Hola, me gustaría más información sobre sus rosales.",
@@ -9,7 +9,7 @@ export default function WhatsAppButton({
   className?: string;
   children?: React.ReactNode;
 }) {
-  const href = `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(mensaje)}`;
+  const href = linkWhatsApp(mensaje);
   return (
     <a
       href={href}

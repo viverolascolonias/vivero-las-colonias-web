@@ -13,6 +13,10 @@ export type SubcategoriaRosal = "Arbustiva baja" | "Trepadora" | "Medio pie";
 
 export type TipoFloracion = "Botonera" | "Floribunda" | "Grandiflora";
 
+/** Un tramo de precio por cantidad, ej. "+50 unidades = $4.200" — viene tal
+ * cual de PrecioPorCantidad en el ERP vía `npm run sync-erp`. */
+export type EscalaPrecio = { cantidadMinima: number; precio: number };
+
 export type Producto = {
   /** Mismo id que en el ERP (Producto.id) — clave para el futuro cruce de datos. */
   id: string;
@@ -23,11 +27,14 @@ export type Producto = {
   subcategoria: SubcategoriaRosal | string | null;
   /** null = "Consultar precio" (todavía no tiene precio público definido en el ERP). */
   precio: number | null;
-  /**
-   * Mock por ahora: el ERP aún no tiene stock inicial real cargado para
-   * estas variedades, así que este campo NO debe interpretarse como stock
-   * real hasta que exista la conexión en vivo (ver README.md).
-   */
+  /** Tramos de precio por cantidad configurados en el ERP (PrecioPorCantidad).
+   * Vacío si el ERP no tiene tramos cargados para este producto todavía. */
+  escalasPrecio: EscalaPrecio[];
+  /** Stock real (Producto.stockActual en el ERP) al momento de la última
+   * sincronización — no es en vivo, se actualiza cada vez que se sincroniza
+   * el catálogo desde el ERP. */
+  stock: number;
+  /** Derivado de `stock > 0` en la sincronización — ya no es un mock. */
   disponible: boolean;
   /** Ruta de imagen; null muestra el placeholder botánico de marca. */
   imagen: string | null;

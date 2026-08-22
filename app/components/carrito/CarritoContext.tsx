@@ -6,6 +6,15 @@
 // visual se sienta completa (agregar, cambiar cantidad, quitar).
 
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
+import { LIMITAR_POR_STOCK } from "@/lib/config";
+
+/** Mientras LIMITAR_POR_STOCK esté apagado, ningún producto activo del
+ * catálogo queda bloqueado por su stock real (todavía no cargado en el
+ * ERP) -- el campo `stock` se sigue guardando y usando tal cual apenas se
+ * active el límite, sin tocar este archivo de nuevo. */
+function topeCantidad(stock: number): number {
+  return LIMITAR_POR_STOCK ? stock : Infinity;
+}
 
 export type ItemCarrito = {
   productoId: string;
@@ -13,6 +22,9 @@ export type ItemCarrito = {
   nombre: string;
   subcategoria: string | null;
   precio: number | null;
+  /** Stock real del ERP al momento de agregarlo — nunca se permite superarlo
+   * en el carrito. No se descuenta nada real acá, es solo un tope de UI. */
+  stock: number;
   cantidad: number;
 };
 
@@ -53,17 +65,18 @@ export function CarritoProvider({ children }: { children: React.ReactNode }) {
     setItems((prev) => {
       const existe = prev.find((i) => i.productoId === item.productoId);
       if (existe) {
-        return prev.map((i) =>
-          i.productoId === item.productoId ? { ...i, cantidad: i.cantidad + cantidad } : i
-        );
+        const nuevaCantidad = Math.min(topeCantidad(existe.stock), existe.cantidad + cantidad);
+        return prev.map((i) => (i.productoId === item.productoId ? { ...i, cantidad: nuevaCantidad } : i));
       }
-      return [...prev, { ...item, cantidad }];
+      return [...prev, { ...item, cantidad: Math.min(topeCantidad(item.stock), Math.max(1, cantidad)) }];
     });
   }
 
   function actualizarCantidad(productoId: string, cantidad: number) {
     setItems((prev) =>
-      prev.map((i) => (i.productoId === productoId ? { ...i, cantidad: Math.max(1, cantidad) } : i))
+      prev.map((i) =>
+        i.productoId === productoId ? { ...i, cantidad: Math.min(topeCantidad(i.stock), Math.max(1, cantidad)) } : i
+      )
     );
   }
 
