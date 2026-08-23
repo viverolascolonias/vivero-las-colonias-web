@@ -77,11 +77,12 @@ const SERVICIOS = [
 export default function PaisajismoPage() {
   return (
     <div>
-      <section className="relative flex h-[46vh] min-h-[380px] items-center overflow-hidden">
-        {/* La foto está compuesta con espacio libre a la izquierda para el
-            texto. En pantallas angostas, object-position se corre hacia el
-            centro para no perder el sendero y las flores (que en el
-            recorte por defecto quedarían fuera de cuadro). */}
+      <section className="relative flex h-[62vh] min-h-[440px] items-center overflow-hidden">
+        {/* La foto es la protagonista: ocupa prácticamente todo el hero.
+            Está compuesta con espacio libre a la izquierda para el texto.
+            En pantallas angostas, object-position se corre hacia el centro
+            para no perder el sendero y las flores (que en el recorte por
+            defecto quedarían fuera de cuadro). */}
         <ImagenFondo
           rutaBase="images/paisajismo/banner"
           alt="Jardín naturalista con sendero de grava, lavandas, gramíneas y flores perennes de bajo consumo hídrico"
@@ -89,7 +90,9 @@ export default function PaisajismoPage() {
           priority
           imgClassName="object-[54%_66%] md:object-[center_60%]"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-ink)]/65 via-[var(--color-ink)]/25 to-transparent" />
+        {/* Overlay sutil: solo lo necesario para que el texto blanco sea
+            legible, sin oscurecer la fotografía en el resto del hero. */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-ink)]/50 via-[var(--color-ink)]/15 to-transparent" />
 
         <Container className="relative z-10">
           <div className="max-w-md text-left">
@@ -97,16 +100,16 @@ export default function PaisajismoPage() {
               Paisajismo
             </p>
             <h1 className="text-4xl md:text-5xl font-medium text-[var(--color-cream-50)]">
-              Espacios que crecen contigo
+              Diseñamos espacios que cobran vida
             </h1>
             <p className="mt-4 text-[var(--color-cream-100)]">
-              Diseños sostenibles, con estructura y bajo consumo hídrico.
+              Proyectos personalizados de diseño, instalación, mantención y asesoría.
             </p>
             <WhatsAppButton
-              mensaje="Hola, quiero conversar sobre un proyecto de paisajismo."
+              mensaje="Hola, quiero conocer más sobre su servicio de paisajismo."
               className="mt-6 shadow-lg shadow-black/30"
             >
-              Conversemos por WhatsApp
+              Conoce nuestro servicio
             </WhatsAppButton>
           </div>
         </Container>
