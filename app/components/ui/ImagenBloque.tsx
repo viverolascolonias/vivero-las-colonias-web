@@ -13,19 +13,23 @@ export default function ImagenBloque({
   variant = "olive",
   className = "",
   sizes = "100vw",
+  imgClassName = "",
 }: {
   rutaBase: string;
   alt: string;
   variant?: "olive" | "sand" | "sage";
   className?: string;
   sizes?: string;
+  /** Clases extra para la <Image> (ej. object-position, cuando el recorte
+   * por defecto no deja visible lo importante en un aspect-ratio angosto). */
+  imgClassName?: string;
 }) {
   const src = resolverImagenPublica(rutaBase);
 
   return (
     <div className={`relative overflow-hidden ${className}`}>
       {src ? (
-        <Image src={src} alt={alt} fill sizes={sizes} className="object-cover" />
+        <Image src={src} alt={alt} fill sizes={sizes} className={`object-cover ${imgClassName}`} />
       ) : (
         <PlaceholderImage variant={variant} className="h-full w-full" />
       )}
