@@ -179,7 +179,8 @@ export default function PaisajismoPage() {
           </p>
           <WhatsAppButton
             mensaje="Hola, quiero conversar sobre un proyecto de paisajismo."
-            className="mt-6 bg-[var(--color-cream-50)] text-[var(--color-forest-dark)] hover:bg-[var(--color-cream-200)]"
+            variant="light"
+            className="mt-6"
           >
             Conversemos por WhatsApp
           </WhatsAppButton>

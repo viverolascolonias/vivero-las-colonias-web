@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { ButtonHTMLAttributes } from "react";
 
-type Variant = "primary" | "secondary" | "ghost";
+type Variant = "primary" | "secondary" | "ghost" | "light";
 
 const VARIANT_CLASSES: Record<Variant, string> = {
   primary:
@@ -9,6 +9,10 @@ const VARIANT_CLASSES: Record<Variant, string> = {
   secondary:
     "border border-[var(--color-forest)] text-[var(--color-forest)] hover:bg-[var(--color-forest)] hover:text-[var(--color-cream-50)]",
   ghost: "text-[var(--color-forest)] hover:bg-[var(--color-cream-200)]",
+  // Para usar sobre fotos o fondos oscuros: fondo claro sólido, no un
+  // override de color por className (con Tailwind eso no garantiza qué
+  // clase gana en el CSS final).
+  light: "bg-[var(--color-cream-50)] text-[var(--color-forest-dark)] hover:bg-[var(--color-cream-200)]",
 };
 
 const BASE =

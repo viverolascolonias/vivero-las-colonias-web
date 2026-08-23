@@ -23,9 +23,11 @@ export default function SobreNosotrosTeaser() {
         </div>
         <ImagenBloque
           rutaBase="images/nosotros-teaser"
-          alt="Vivero Las Colonias"
+          alt="Trabajador de Vivero Las Colonias caminando entre hileras de rosales en flor"
           variant="olive"
           className="aspect-[4/5] w-full rounded-2xl"
+          imgClassName="object-[64%_center]"
+          sizes="(min-width: 768px) 50vw, 100vw"
         />
       </Container>
     </section>

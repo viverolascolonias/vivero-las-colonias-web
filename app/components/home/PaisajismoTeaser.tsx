@@ -17,10 +17,7 @@ export default function PaisajismoTeaser() {
         <p className="mx-auto mt-4 max-w-lg text-[var(--color-cream-100)]">
           Proyectos personalizados de diseño, instalación, mantención y asesoría.
         </p>
-        <LinkButton
-          href="/paisajismo"
-          className="mt-8 bg-[var(--color-cream-50)] text-[var(--color-forest-dark)] hover:bg-[var(--color-cream-200)]"
-        >
+        <LinkButton href="/paisajismo" variant="light" className="mt-8">
           Conoce nuestro servicio
         </LinkButton>
       </Container>
