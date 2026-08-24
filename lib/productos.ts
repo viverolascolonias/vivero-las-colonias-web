@@ -1,5 +1,6 @@
 import productosData from "@/data/productos.json";
 import type { Producto, SubcategoriaRosal } from "@/lib/types";
+import { SLUGS_AGOTADOS } from "@/lib/config";
 
 // Capa de datos del catálogo. HOY lee data/productos.json (una fotografía
 // de solo lectura del ERP, generada por scripts/sync-erp-catalog.mjs).
@@ -45,7 +46,15 @@ export const CATEGORIAS_PLANTAS: {
   },
 ];
 
-function conContenidoGenerico(producto: Producto): Producto {
+// Aplica la lista manual de agotados (SLUGS_AGOTADOS) antes que nada más,
+// independiente de LIMITAR_POR_STOCK/del stock sincronizado desde el ERP.
+function conDisponibilidadManual(producto: Producto): Producto {
+  if (!SLUGS_AGOTADOS.includes(producto.slug)) return producto;
+  return { ...producto, disponible: false, stock: 0 };
+}
+
+function conContenidoGenerico(productoOriginal: Producto): Producto {
+  const producto = conDisponibilidadManual(productoOriginal);
   if (producto.categoria !== "Rosal") return producto;
   return {
     ...producto,

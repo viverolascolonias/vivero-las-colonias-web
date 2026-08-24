@@ -15,3 +15,19 @@
  * Node plano) -- mantenerlos sincronizados.
  */
 export const LIMITAR_POR_STOCK = false;
+
+/**
+ * Variedades marcadas manualmente como agotadas, independiente del stock
+ * real del ERP (que hoy no está cargado del todo -- ver LIMITAR_POR_STOCK
+ * arriba). Se aplica en lib/productos.ts, así que sobrevive a la próxima
+ * corrida de `npm run sync-erp` en vez de perderse.
+ *
+ * Usa el `slug` del producto (visible en la URL, ej. "/rosales/<slug>").
+ * Para volver a poner una variedad disponible, sacarla de esta lista.
+ */
+export const SLUGS_AGOTADOS: string[] = [
+  "clavel-arbustiva-baja",
+  "payaso-arbustiva-baja",
+  "diva-de-divas-arbustiva-baja",
+  "fire-arbustiva-baja",
+];
