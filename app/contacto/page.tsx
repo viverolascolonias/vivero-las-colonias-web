@@ -2,12 +2,17 @@ import type { Metadata } from "next";
 import Container from "@/app/components/ui/Container";
 import WhatsAppButton from "@/app/components/ui/WhatsAppButton";
 import ContactoForm from "@/app/components/contacto/ContactoForm";
+import { SITE_ADDRESS } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Contacto",
-  description: "Escríbenos por WhatsApp o Instagram, o déjanos un mensaje. Despachamos rosales y plantas en Chile.",
+  description:
+    "Retira en el vivero en Paine, Región Metropolitana, o coordina despacho a otras regiones de Chile. Escríbenos por WhatsApp o Instagram.",
   alternates: { canonical: "/contacto" },
 };
+
+const DIRECCION_COMPLETA = `${SITE_ADDRESS.streetAddress}, ${SITE_ADDRESS.addressLocality}, ${SITE_ADDRESS.addressRegion}, Chile`;
+const MAPS_HREF = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(DIRECCION_COMPLETA)}`;
 
 export default function ContactoPage() {
   return (
@@ -22,6 +27,37 @@ export default function ContactoPage() {
 
         <div className="grid gap-12 md:grid-cols-2">
           <div className="space-y-8">
+            <div className="flex items-start gap-4">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[var(--color-cream-200)] text-[var(--color-forest-dark)]">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.6">
+                  <path
+                    d="M12 21s-6.5-5.6-6.5-10.5A6.5 6.5 0 0 1 12 4a6.5 6.5 0 0 1 6.5 6.5C18.5 15.4 12 21 12 21Z"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <circle cx="12" cy="10.5" r="2.2" />
+                </svg>
+              </div>
+              <div>
+                <h2 className="font-[var(--font-heading)] text-lg text-[var(--color-forest-dark)]">
+                  Retiro en el vivero
+                </h2>
+                <p className="text-sm text-[var(--color-ink-soft)]">
+                  {SITE_ADDRESS.streetAddress}
+                  <br />
+                  {SITE_ADDRESS.addressLocality}, {SITE_ADDRESS.addressRegion}
+                </p>
+                <a
+                  href={MAPS_HREF}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-2 inline-block text-sm font-medium text-[var(--color-forest)] hover:underline"
+                >
+                  Ver en Google Maps →
+                </a>
+              </div>
+            </div>
+
             <div className="flex items-start gap-4">
               <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[var(--color-cream-200)] text-[var(--color-forest-dark)]">
                 <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.6">

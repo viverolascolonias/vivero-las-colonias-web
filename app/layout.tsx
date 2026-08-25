@@ -4,7 +4,7 @@ import "./globals.css";
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
 import { CarritoProvider } from "./components/carrito/CarritoContext";
-import { SITE_URL, SITE_NAME, SITE_EMAIL, INSTAGRAM_URL } from "@/lib/seo";
+import { SITE_URL, SITE_NAME, SITE_EMAIL, INSTAGRAM_URL, SITE_ADDRESS } from "@/lib/seo";
 import { WHATSAPP_NUMERO_VIVERO } from "@/lib/whatsapp";
 
 const fraunces = Fraunces({
@@ -39,14 +39,24 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const organizacionJsonLd = {
+  // Establecimiento híbrido, confirmado por el negocio: atención
+  // presencial en la dirección real de abajo, más despacho a otras
+  // regiones de Chile (areaServed). GardenStore es el tipo más específico
+  // de schema.org para un vivero -- ya incluye todas las propiedades de
+  // LocalBusiness/Organization, así que reemplaza el bloque Organization
+  // genérico que había antes en vez de convivir con él.
+  const negocioJsonLd = {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    "@type": "GardenStore",
     name: SITE_NAME,
     url: SITE_URL,
     logo: `${SITE_URL}/logo-vivero-las-colonias-verde.png`,
     email: SITE_EMAIL,
     sameAs: [INSTAGRAM_URL],
+    address: {
+      "@type": "PostalAddress",
+      ...SITE_ADDRESS,
+    },
     areaServed: "CL",
     contactPoint: {
       "@type": "ContactPoint",
@@ -63,7 +73,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script
           type="application/ld+json"
           // eslint-disable-next-line react/no-danger
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizacionJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(negocioJsonLd) }}
         />
       </head>
       <body className={`${fraunces.variable} ${inter.variable} antialiased`}>

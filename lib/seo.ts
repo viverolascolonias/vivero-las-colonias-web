@@ -9,6 +9,19 @@ export const SITE_EMAIL = "contacto@viverolascolonias.cl";
 export const INSTAGRAM_URL = "https://instagram.com/viverolascoloniaschile";
 
 /**
+ * Dirección real del vivero, confirmada explícitamente por el negocio
+ * (establecimiento híbrido: atención presencial en esta dirección +
+ * despacho a otras regiones). No modificar sin una nueva confirmación
+ * igual de explícita -- se usa tal cual en LocalBusiness y en /contacto.
+ */
+export const SITE_ADDRESS = {
+  streetAddress: "Pedro Aguirre Cerda, Las Colonias de Paine, Parcela 17",
+  addressLocality: "Paine",
+  addressRegion: "Región Metropolitana",
+  addressCountry: "CL",
+};
+
+/**
  * Recorta un texto a un largo apto para meta description (Google corta
  * alrededor de 155-160 caracteres) sin cortar la oración a la mitad --
  * usa el mismo texto real de la ficha, solo ajustado al límite técnico
