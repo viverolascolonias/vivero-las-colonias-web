@@ -4,8 +4,9 @@ import WhatsAppButton from "@/app/components/ui/WhatsAppButton";
 import ContactoForm from "@/app/components/contacto/ContactoForm";
 
 export const metadata: Metadata = {
-  title: "Contacto — Vivero Las Colonias",
-  description: "Escríbenos por WhatsApp o Instagram, o déjanos un mensaje.",
+  title: "Contacto",
+  description: "Escríbenos por WhatsApp o Instagram, o déjanos un mensaje. Despachamos rosales y plantas en Chile.",
+  alternates: { canonical: "/contacto" },
 };
 
 export default function ContactoPage() {

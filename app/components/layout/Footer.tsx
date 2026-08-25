@@ -34,6 +34,7 @@ export default function Footer() {
             <li><Link href="/rosales" className="hover:text-[var(--color-forest)]">Rosales</Link></li>
             <li><Link href="/plantas" className="hover:text-[var(--color-forest)]">Plantas</Link></li>
             <li><Link href="/paisajismo" className="hover:text-[var(--color-forest)]">Paisajismo</Link></li>
+            <li><Link href="/guias" className="hover:text-[var(--color-forest)]">Guías de rosales</Link></li>
             <li><Link href="/nosotros" className="hover:text-[var(--color-forest)]">Nosotros</Link></li>
             <li><Link href="/contacto" className="hover:text-[var(--color-forest)]">Contacto</Link></li>
           </ul>

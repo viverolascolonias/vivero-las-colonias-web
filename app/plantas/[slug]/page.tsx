@@ -1,7 +1,8 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import FichaProducto from "@/app/components/producto/FichaProducto";
-import { getProductoBySlug, getPlantas } from "@/lib/productos";
+import type { MigaPan } from "@/app/components/ui/Breadcrumbs";
+import { getProductoBySlug, getPlantas, CATEGORIAS_PLANTAS } from "@/lib/productos";
 
 export function generateStaticParams() {
   return getPlantas().map((p) => ({ slug: p.slug }));
@@ -16,8 +17,9 @@ export async function generateMetadata({
   const producto = getProductoBySlug(slug);
   if (!producto) return {};
   return {
-    title: `${producto.nombre} — Vivero Las Colonias`,
+    title: producto.nombre,
     description: producto.descripcion,
+    alternates: { canonical: `/plantas/${producto.slug}` },
   };
 }
 
@@ -26,5 +28,13 @@ export default async function PlantaDetallePage({ params }: { params: Promise<{ 
   const producto = getProductoBySlug(slug);
   if (!producto || producto.categoria === "Rosal") notFound();
 
-  return <FichaProducto producto={producto} />;
+  const categoriaInfo = CATEGORIAS_PLANTAS.find((c) => c.valor === producto.categoria);
+  const migas: MigaPan[] = [
+    { label: "Inicio", href: "/" },
+    { label: "Plantas", href: "/plantas" },
+    ...(categoriaInfo ? [{ label: categoriaInfo.label, href: `/plantas?categoria=${categoriaInfo.valor}` }] : []),
+    { label: producto.nombre },
+  ];
+
+  return <FichaProducto producto={producto} migas={migas} />;
 }

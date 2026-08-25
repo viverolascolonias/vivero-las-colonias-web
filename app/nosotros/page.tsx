@@ -4,9 +4,10 @@ import ImagenBloque from "@/app/components/ui/ImagenBloque";
 import SectionHeading from "@/app/components/ui/SectionHeading";
 
 export const metadata: Metadata = {
-  title: "Quiénes somos — Vivero Las Colonias",
+  title: "Quiénes somos",
   description:
     "Producimos rosales, asesoramos y acompañamos a cada cliente para crear áreas verdes que realmente funcionen.",
+  alternates: { canonical: "/nosotros" },
 };
 
 const PILARES = [

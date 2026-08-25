@@ -7,8 +7,9 @@ import Badge from "@/app/components/ui/Badge";
 import WhatsAppButton from "@/app/components/ui/WhatsAppButton";
 
 export const metadata: Metadata = {
-  title: "Paisajismo — Vivero Las Colonias",
-  description: "Diseño, instalación, mantención y asesoría de jardines por Vivero Las Colonias.",
+  title: "Paisajismo",
+  description: "Diseño, instalación, mantención y asesoría de jardines en Chile por Vivero Las Colonias.",
+  alternates: { canonical: "/paisajismo" },
 };
 
 // Estilos de paisajismo que ofrece el vivero, cada uno con su fotografía

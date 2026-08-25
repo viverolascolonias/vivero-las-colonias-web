@@ -27,6 +27,10 @@ export default function FotoProducto({
   placeholderVariant?: "olive" | "sand" | "sage";
 }) {
   const hoverClase = hoverZoom ? "transition-transform duration-500 group-hover:scale-[1.03]" : "";
+  const alt =
+    producto.categoria === "Rosal" && producto.subcategoria
+      ? `Rosa ${producto.nombre} — rosal ${producto.subcategoria.toLowerCase()}, Vivero Las Colonias`
+      : `${producto.nombre}, Vivero Las Colonias`;
 
   if (!imagen) {
     return <PlaceholderImage variant={placeholderVariant} className={`h-full w-full ${hoverClase}`} />;
@@ -37,7 +41,7 @@ export default function FotoProducto({
       <div className={`absolute inset-0 ${hoverClase}`}>
         <Image
           src={imagen}
-          alt={producto.nombre}
+          alt={alt}
           fill
           sizes={sizes}
           className={`object-cover ${obtenerClaseObjectPosition(producto.slug)}`}

@@ -1,6 +1,16 @@
 import Link from "next/link";
 import { SUBCATEGORIAS_ROSAL } from "@/lib/productos";
 
+// Rutas propias por categoría (mejor para SEO que un filtro por
+// query-string: cada una tiene su propio título, meta description y URL
+// indexable). Mantener sincronizado con app/rosales/{arbustivos,
+// trepadores,medio-pie}/page.tsx.
+const RUTA_POR_SUBCATEGORIA: Record<string, string> = {
+  "Arbustiva baja": "/rosales/arbustivos",
+  Trepadora: "/rosales/trepadores",
+  "Medio pie": "/rosales/medio-pie",
+};
+
 export default function FiltrosRosal({ activo }: { activo?: string }) {
   const opciones = [{ label: "Todas", valor: undefined }, ...SUBCATEGORIAS_ROSAL.map((s) => ({ label: s, valor: s }))];
 
@@ -8,7 +18,7 @@ export default function FiltrosRosal({ activo }: { activo?: string }) {
     <div className="mb-10 flex flex-wrap items-center justify-center gap-3">
       {opciones.map((op) => {
         const esActivo = activo === op.valor || (!activo && !op.valor);
-        const href = op.valor ? `/rosales?subcategoria=${encodeURIComponent(op.valor)}` : "/rosales";
+        const href = op.valor ? RUTA_POR_SUBCATEGORIA[op.valor] : "/rosales";
         return (
           <Link
             key={op.label}

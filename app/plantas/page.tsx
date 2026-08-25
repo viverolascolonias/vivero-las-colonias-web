@@ -7,9 +7,10 @@ import { getPlantas, CATEGORIAS_PLANTAS } from "@/lib/productos";
 import type { Producto } from "@/lib/types";
 
 export const metadata: Metadata = {
-  title: "Plantas — Vivero Las Colonias",
+  title: "Plantas ornamentales, árboles y arbustos",
   description:
     "Ornamentales, árboles, arbustos y plantas de interior de Vivero Las Colonias: tan parte del vivero como nuestros rosales.",
+  alternates: { canonical: "/plantas" },
 };
 
 export default async function PlantasPage({
