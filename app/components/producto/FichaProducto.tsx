@@ -149,6 +149,29 @@ export default function FichaProducto({
               </ul>
             </div>
           )}
+
+          {producto.categoria === "Rosal" && (
+            <div className="mt-8 border-t border-[var(--color-border)] pt-6">
+              <h2 className="mb-2 text-xs font-medium tracking-[0.2em] uppercase text-[var(--color-earth)]">
+                Cuidados
+              </h2>
+              <p className="text-sm leading-relaxed text-[var(--color-ink-soft)]">
+                Revisa nuestras guías para{" "}
+                <Link href="/guias/como-plantar-un-rosal" className="text-[var(--color-forest)] underline">
+                  plantarlo
+                </Link>
+                ,{" "}
+                <Link href="/guias/como-cuidar-un-rosal" className="text-[var(--color-forest)] underline">
+                  cuidarlo
+                </Link>{" "}
+                y{" "}
+                <Link href="/guias/cuando-podar-rosales" className="text-[var(--color-forest)] underline">
+                  podarlo
+                </Link>
+                .
+              </p>
+            </div>
+          )}
         </div>
       </Container>
 

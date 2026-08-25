@@ -53,6 +53,14 @@ function conDisponibilidadManual(producto: Producto): Producto {
   return { ...producto, disponible: false, stock: 0 };
 }
 
+// Antes esta función también rellenaba "características" y "cuidados" con
+// un bloque genérico idéntico en las 48 fichas (ninguno de los dos viene
+// del ERP) -- se sacó a propósito: es contenido duplicado sin valor real,
+// y la guía "Cómo plantar un rosal" ya cubre esos cuidados generales una
+// sola vez, enlazada desde cada ficha (ver FichaProducto). Solo se
+// completa acá lo que realmente puede faltar en el JSON: la descripción,
+// que sí viene de VariedadRosal.resumen en el ERP para las 48 variedades
+// actuales, pero podría faltar en una nueva variedad recién cargada.
 function conContenidoGenerico(productoOriginal: Producto): Producto {
   const producto = conDisponibilidadManual(productoOriginal);
   if (producto.categoria !== "Rosal") return producto;
@@ -60,18 +68,8 @@ function conContenidoGenerico(productoOriginal: Producto): Producto {
     ...producto,
     descripcion:
       producto.descripcion ??
-      `${producto.nombre} es una variedad de rosal cultivada por Vivero Las Colonias, ` +
-        `seleccionada por su carácter y presencia en jardín. Descripción detallada disponible próximamente.`,
-    caracteristicas: producto.caracteristicas ?? [
-      producto.subcategoria ? `Hábito: ${producto.subcategoria}` : "Rosal",
-      "Cultivado en Vivero Las Colonias",
-    ],
-    cuidados: producto.cuidados ?? [
-      "Sol directo al menos 6 horas al día",
-      "Riego regular, evitando encharcar el sustrato",
-      "Poda de mantención a fines de invierno",
-      "Fertilización orgánica en primavera",
-    ],
+      `${producto.nombre} es una variedad de rosal cultivada por Vivero Las Colonias. ` +
+        `Ficha detallada disponible próximamente.`,
   };
 }
 

@@ -111,6 +111,18 @@ export default function TiposDeRosalesPage() {
             </Link>
           </p>
 
+          <p>
+            Una vez que elijas el tipo, revisa cómo{" "}
+            <Link href="/guias/como-plantar-un-rosal" className="text-[var(--color-forest)] underline">
+              plantarlo
+            </Link>{" "}
+            y{" "}
+            <Link href="/guias/como-cuidar-un-rosal" className="text-[var(--color-forest)] underline">
+              cuidarlo
+            </Link>
+            .
+          </p>
+
           <h2 className="pt-2 font-[var(--font-heading)] text-2xl text-[var(--color-forest-dark)]">
             Preguntas frecuentes
           </h2>

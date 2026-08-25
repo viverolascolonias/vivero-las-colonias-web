@@ -16,4 +16,18 @@ export const GUIAS = [
       "Cuándo plantar, cómo preparar el hoyo y los primeros cuidados para que un rosal recién plantado arraigue bien.",
     fechaPublicacion: "2026-08-24",
   },
+  {
+    slug: "como-cuidar-un-rosal",
+    titulo: "Cómo cuidar un rosal",
+    resumen:
+      "Riego, fertilización y los problemas más comunes: la guía de cuidados generales para mantener un rosal sano durante todo el año.",
+    fechaPublicacion: "2026-08-25",
+  },
+  {
+    slug: "cuando-podar-rosales",
+    titulo: "Cuándo podar rosales",
+    resumen:
+      "La época correcta para podar en Chile, por qué importa y cómo hacer un corte de poda básico sin dañar la planta.",
+    fechaPublicacion: "2026-08-25",
+  },
 ] as const;
