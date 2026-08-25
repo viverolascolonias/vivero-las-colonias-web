@@ -6,17 +6,44 @@ import CategoriaPlantaCard from "@/app/components/catalogo/CategoriaPlantaCard";
 import { getPlantas, CATEGORIAS_PLANTAS } from "@/lib/productos";
 import type { Producto } from "@/lib/types";
 
-export const metadata: Metadata = {
-  title: "Plantas ornamentales, árboles y arbustos",
-  description:
-    "Ornamentales, árboles, arbustos y plantas de interior de Vivero Las Colonias: tan parte del vivero como nuestros rosales.",
-  alternates: { canonical: "/plantas" },
-};
+type SearchParams = { categoria?: string };
+
+// El listado general (sin filtro) siempre se indexa: tiene contenido real
+// (las 5 categorías + lo que haya cargado). Una categoría específica que
+// hoy no tiene ninguna variedad cargada se marca noindex -- es contenido
+// vacío, no vale la pena que Google la indexe así -- pero en cuanto se
+// cargue el catálogo real de esa categoría en el ERP, esta misma lógica la
+// vuelve indexable sola, con su propio título, sin tocar código de nuevo.
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams: Promise<SearchParams>;
+}): Promise<Metadata> {
+  const { categoria } = await searchParams;
+  const categoriaActiva = categoria as Exclude<Producto["categoria"], "Rosal"> | undefined;
+  const categoriaInfo = CATEGORIAS_PLANTAS.find((c) => c.valor === categoriaActiva);
+
+  if (!categoriaActiva || !categoriaInfo) {
+    return {
+      title: "Plantas ornamentales, árboles y arbustos",
+      description:
+        "Ornamentales, árboles, arbustos y plantas de interior de Vivero Las Colonias: tan parte del vivero como nuestros rosales.",
+      alternates: { canonical: "/plantas" },
+    };
+  }
+
+  const tieneProductos = getPlantas(categoriaActiva).length > 0;
+  return {
+    title: categoriaInfo.label,
+    description: categoriaInfo.descripcion,
+    ...(tieneProductos ? {} : { robots: { index: false, follow: true } }),
+  };
+}
 
 export default async function PlantasPage({
   searchParams,
 }: {
-  searchParams: Promise<{ categoria?: string }>;
+  searchParams: Promise<SearchParams>;
 }) {
   const { categoria } = await searchParams;
   const categoriaActiva = categoria as Exclude<Producto["categoria"], "Rosal"> | undefined;

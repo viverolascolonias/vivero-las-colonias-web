@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import FichaProducto from "@/app/components/producto/FichaProducto";
 import type { MigaPan } from "@/app/components/ui/Breadcrumbs";
 import { getProductoBySlug, getPlantas, CATEGORIAS_PLANTAS } from "@/lib/productos";
+import { truncarMetaDescription } from "@/lib/seo";
 
 export function generateStaticParams() {
   return getPlantas().map((p) => ({ slug: p.slug }));
@@ -18,7 +19,7 @@ export async function generateMetadata({
   if (!producto) return {};
   return {
     title: producto.nombre,
-    description: producto.descripcion,
+    description: producto.descripcion ? truncarMetaDescription(producto.descripcion) : undefined,
     alternates: { canonical: `/plantas/${producto.slug}` },
   };
 }

@@ -3,6 +3,13 @@
 // y el sitemap.
 export const GUIAS = [
   {
+    slug: "rosales-en-primavera",
+    titulo: "Rosales en primavera: qué hacer en tu jardín",
+    resumen:
+      "Fin de la temporada de plantación a raíz desnuda, poda de invierno y primera fertilización: la checklist de esta época del año.",
+    fechaPublicacion: "2026-08-25",
+  },
+  {
     slug: "tipos-de-rosales",
     titulo: "Tipos de rosales: arbustivos, trepadores y medio pie",
     resumen:

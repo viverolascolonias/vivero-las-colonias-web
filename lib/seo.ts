@@ -8,6 +8,21 @@ export const SITE_NAME = "Vivero Las Colonias";
 export const SITE_EMAIL = "contacto@viverolascolonias.cl";
 export const INSTAGRAM_URL = "https://instagram.com/viverolascoloniaschile";
 
+/**
+ * Recorta un texto a un largo apto para meta description (Google corta
+ * alrededor de 155-160 caracteres) sin cortar la oración a la mitad --
+ * usa el mismo texto real de la ficha, solo ajustado al límite técnico
+ * de la etiqueta, nunca reescrito ni inventado.
+ */
+export function truncarMetaDescription(texto: string, maxLen = 155): string {
+  if (texto.length <= maxLen) return texto;
+  const cortado = texto.slice(0, maxLen);
+  const ultimoPunto = cortado.lastIndexOf(". ");
+  if (ultimoPunto > maxLen * 0.5) return cortado.slice(0, ultimoPunto + 1);
+  const ultimoEspacio = cortado.lastIndexOf(" ");
+  return `${cortado.slice(0, ultimoEspacio > 0 ? ultimoEspacio : maxLen)}…`;
+}
+
 /** Datos estructurados Article para una guía/artículo educativo. */
 export function articleJsonLd({
   titulo,

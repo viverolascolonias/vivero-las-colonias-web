@@ -53,6 +53,23 @@ function conDisponibilidadManual(producto: Producto): Producto {
   return { ...producto, disponible: false, stock: 0 };
 }
 
+// Algunas variedades (Da Vinci, Freedom, Iceberg, etc.) existen en más de
+// una forma de cultivo y comparten la misma VariedadRosal.resumen en el
+// ERP -- correcto ahí (es la misma ficha botánica), pero eso deja el
+// mismo texto de descripción en 2-3 URLs distintas de la web (ej.
+// /rosales/da-vinci-arbustiva-baja y /rosales/da-vinci-medio-pie). Se
+// detecta acá y se agrega una frase corta y verídica distinguiendo la
+// forma de cultivo, para que cada URL tenga contenido único sin inventar
+// nada sobre la variedad misma.
+const DESCRIPCIONES_COMPARTIDAS = (() => {
+  const conteo = new Map<string, number>();
+  for (const p of PRODUCTOS) {
+    if (p.categoria !== "Rosal" || !p.descripcion) continue;
+    conteo.set(p.descripcion, (conteo.get(p.descripcion) ?? 0) + 1);
+  }
+  return new Set(Array.from(conteo.entries()).filter(([, n]) => n > 1).map(([d]) => d));
+})();
+
 // Antes esta función también rellenaba "características" y "cuidados" con
 // un bloque genérico idéntico en las 48 fichas (ninguno de los dos viene
 // del ERP) -- se sacó a propósito: es contenido duplicado sin valor real,
@@ -64,13 +81,18 @@ function conDisponibilidadManual(producto: Producto): Producto {
 function conContenidoGenerico(productoOriginal: Producto): Producto {
   const producto = conDisponibilidadManual(productoOriginal);
   if (producto.categoria !== "Rosal") return producto;
-  return {
-    ...producto,
-    descripcion:
-      producto.descripcion ??
-      `${producto.nombre} es una variedad de rosal cultivada por Vivero Las Colonias. ` +
-        `Ficha detallada disponible próximamente.`,
-  };
+
+  const descripcionBase =
+    producto.descripcion ??
+    `${producto.nombre} es una variedad de rosal cultivada por Vivero Las Colonias. ` +
+      `Ficha detallada disponible próximamente.`;
+
+  const descripcion =
+    producto.descripcion && producto.subcategoria && DESCRIPCIONES_COMPARTIDAS.has(producto.descripcion)
+      ? `${descripcionBase} En Vivero Las Colonias la cultivamos en su forma ${producto.subcategoria.toLowerCase()}.`
+      : descripcionBase;
+
+  return { ...producto, descripcion };
 }
 
 export function getProductos(): Producto[] {

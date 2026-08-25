@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import FichaProducto from "@/app/components/producto/FichaProducto";
 import type { MigaPan } from "@/app/components/ui/Breadcrumbs";
 import { getProductoBySlug, getRosales } from "@/lib/productos";
+import { truncarMetaDescription } from "@/lib/seo";
 import type { SubcategoriaRosal } from "@/lib/types";
 
 const RUTA_POR_SUBCATEGORIA: Record<string, string> = {
@@ -25,7 +26,7 @@ export async function generateMetadata({
   if (!producto) return {};
   return {
     title: producto.subcategoria ? `Rosa ${producto.nombre} — Rosal ${producto.subcategoria}` : producto.nombre,
-    description: producto.descripcion,
+    description: producto.descripcion ? truncarMetaDescription(producto.descripcion) : undefined,
     alternates: { canonical: `/rosales/${producto.slug}` },
   };
 }
