@@ -22,6 +22,18 @@ export const SITE_ADDRESS = {
 };
 
 /**
+ * Horario general de contacto/comunicación (WhatsApp, correo, etc.), no de
+ * atención presencial sin aviso -- confirmado explícitamente por el negocio.
+ * La visita presencial al vivero siempre requiere coordinación previa
+ * (trabajan directamente en el vivero y pueden no estar disponibles), por
+ * eso nunca se publica como "horario de local abierto" en el schema.
+ */
+export const HORARIO_CONTACTO = "Lunes a sábado, 09:00 a 18:00 hrs";
+
+export const NOTA_ATENCION_PRESENCIAL =
+  "La atención presencial en el vivero es siempre con cita previa: contáctanos antes de venir para coordinar un horario y asegurarte de que estaremos disponibles.";
+
+/**
  * Recorta un texto a un largo apto para meta description (Google corta
  * alrededor de 155-160 caracteres) sin cortar la oración a la mitad --
  * usa el mismo texto real de la ficha, solo ajustado al límite técnico

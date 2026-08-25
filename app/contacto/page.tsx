@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import Container from "@/app/components/ui/Container";
 import WhatsAppButton from "@/app/components/ui/WhatsAppButton";
 import ContactoForm from "@/app/components/contacto/ContactoForm";
-import { SITE_ADDRESS } from "@/lib/seo";
+import { SITE_ADDRESS, HORARIO_CONTACTO, NOTA_ATENCION_PRESENCIAL } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Contacto",
   description:
-    "Retira en el vivero en Paine, Región Metropolitana, o coordina despacho a otras regiones de Chile. Escríbenos por WhatsApp o Instagram.",
+    "Visítanos en el vivero en Paine, Región Metropolitana, con cita previa, o coordina despacho a otras regiones de Chile. Escríbenos por WhatsApp o Instagram.",
   alternates: { canonical: "/contacto" },
 };
 
@@ -40,7 +40,7 @@ export default function ContactoPage() {
               </div>
               <div>
                 <h2 className="font-[var(--font-heading)] text-lg text-[var(--color-forest-dark)]">
-                  Retiro en el vivero
+                  Visita al vivero
                 </h2>
                 <p className="text-sm text-[var(--color-ink-soft)]">
                   {SITE_ADDRESS.streetAddress}
@@ -55,6 +55,12 @@ export default function ContactoPage() {
                 >
                   Ver en Google Maps →
                 </a>
+                <p className="mt-3 text-sm font-medium text-[var(--color-forest-dark)]">
+                  Atención presencial solo con cita previa
+                </p>
+                <p className="mt-1 text-sm text-[var(--color-ink-soft)]">
+                  {NOTA_ATENCION_PRESENCIAL}
+                </p>
               </div>
             </div>
 
@@ -71,6 +77,7 @@ export default function ContactoPage() {
               <div>
                 <h2 className="font-[var(--font-heading)] text-lg text-[var(--color-forest-dark)]">WhatsApp</h2>
                 <p className="text-sm text-[var(--color-ink-soft)]">+56 9 2365 2575</p>
+                <p className="mt-1 text-sm text-[var(--color-ink-soft)]">Horario de contacto: {HORARIO_CONTACTO}</p>
                 <WhatsAppButton className="mt-3">Escríbenos</WhatsAppButton>
               </div>
             </div>
