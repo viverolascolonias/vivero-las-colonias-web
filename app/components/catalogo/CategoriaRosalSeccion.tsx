@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Container from "@/app/components/ui/Container";
 import FiltrosRosal from "@/app/components/catalogo/FiltrosRosal";
 import GridProductos from "@/app/components/catalogo/GridProductos";
@@ -12,11 +13,15 @@ export default function CategoriaRosalSeccion({
   eyebrow,
   titulo,
   descripcion,
+  guiaRelacionada,
 }: {
   subcategoria?: SubcategoriaRosal;
   eyebrow: string;
   titulo: string;
   descripcion: string;
+  /** Enlace de vuelta a la guía más relevante para esta categoría --
+   * enlazado interno real, no relleno: la guía ya menciona esta categoría. */
+  guiaRelacionada?: { href: string; texto: string };
 }) {
   const productos = getRosales(subcategoria);
 
@@ -33,6 +38,14 @@ export default function CategoriaRosalSeccion({
 
         <FiltrosRosal activo={subcategoria} />
         <GridProductos productos={productos} />
+
+        {guiaRelacionada && (
+          <p className="mt-14 text-center text-sm text-[var(--color-ink-soft)]">
+            <Link href={guiaRelacionada.href} className="text-[var(--color-forest)] underline">
+              {guiaRelacionada.texto}
+            </Link>
+          </p>
+        )}
       </Container>
     </div>
   );

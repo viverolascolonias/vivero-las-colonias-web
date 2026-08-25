@@ -14,6 +14,7 @@ export default function RosalesPage() {
       eyebrow="Nuestra especialidad"
       titulo="Rosales"
       descripcion="Variedades cultivadas y seleccionadas por Vivero Las Colonias, desde clásicas hasta poco comunes."
+      guiaRelacionada={{ href: "/guias/como-elegir-un-rosal", texto: "¿No sabes cuál elegir? Te ayudamos a decidir →" }}
     />
   );
 }

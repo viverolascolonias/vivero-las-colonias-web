@@ -30,4 +30,11 @@ export const GUIAS = [
       "La época correcta para podar en Chile, por qué importa y cómo hacer un corte de poda básico sin dañar la planta.",
     fechaPublicacion: "2026-08-25",
   },
+  {
+    slug: "como-elegir-un-rosal",
+    titulo: "Cómo elegir el rosal ideal para tu jardín",
+    resumen:
+      "Espacio disponible, color, aroma y mantención: las preguntas que te ayudan a elegir la variedad correcta antes de comprar.",
+    fechaPublicacion: "2026-08-25",
+  },
 ] as const;

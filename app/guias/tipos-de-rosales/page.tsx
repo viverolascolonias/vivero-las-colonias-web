@@ -112,7 +112,11 @@ export default function TiposDeRosalesPage() {
           </p>
 
           <p>
-            Una vez que elijas el tipo, revisa cómo{" "}
+            Si todavía no sabes cuál te conviene, revisa nuestra guía para{" "}
+            <Link href="/guias/como-elegir-un-rosal" className="text-[var(--color-forest)] underline">
+              elegir el rosal ideal para tu jardín
+            </Link>
+            . Una vez que elijas el tipo, revisa cómo{" "}
             <Link href="/guias/como-plantar-un-rosal" className="text-[var(--color-forest)] underline">
               plantarlo
             </Link>{" "}

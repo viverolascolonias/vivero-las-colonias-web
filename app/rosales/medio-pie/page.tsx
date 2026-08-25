@@ -15,6 +15,7 @@ export default function RosalesMedioPiePage() {
       eyebrow="Rosales medio pie"
       titulo="Rosales medio pie"
       descripcion="Rosales injertados en tronco, que aportan altura y estructura al diseño del jardín, ideales como punto focal o en hileras."
+      guiaRelacionada={{ href: "/guias/como-plantar-un-rosal", texto: "Cómo plantar correctamente un rosal recién comprado →" }}
     />
   );
 }

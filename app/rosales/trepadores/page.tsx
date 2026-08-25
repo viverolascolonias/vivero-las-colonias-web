@@ -15,6 +15,7 @@ export default function RosalesTrepadoresPage() {
       eyebrow="Rosales trepadores"
       titulo="Rosales trepadores"
       descripcion="Rosales de crecimiento vigoroso, pensados para cubrir muros, pérgolas, cercos y estructuras verticales del jardín."
+      guiaRelacionada={{ href: "/guias/cuando-podar-rosales", texto: "Cómo y cuándo podar un rosal trepador →" }}
     />
   );
 }
