@@ -3,7 +3,10 @@ import Link from "next/link";
 import Container from "@/app/components/ui/Container";
 import GridProductos from "@/app/components/catalogo/GridProductos";
 import CategoriaPlantaCard from "@/app/components/catalogo/CategoriaPlantaCard";
+import Breadcrumbs, { type MigaPan } from "@/app/components/ui/Breadcrumbs";
+import JsonLd from "@/app/components/ui/JsonLd";
 import { getPlantas, CATEGORIAS_PLANTAS } from "@/lib/productos";
+import { collectionPageJsonLd, SITE_URL } from "@/lib/seo";
 import type { Producto } from "@/lib/types";
 
 type SearchParams = { categoria?: string };
@@ -27,7 +30,7 @@ export async function generateMetadata({
     return {
       title: "Plantas ornamentales, árboles y arbustos",
       description:
-        "Ornamentales, árboles, arbustos y plantas de interior de Vivero Las Colonias: tan parte del vivero como nuestros rosales.",
+        "Ornamentales, árboles, arbustos y plantas de interior de Vivero Las Colonias, con despacho en Chile: tan parte del vivero como nuestros rosales.",
       alternates: { canonical: "/plantas" },
     };
   }
@@ -36,6 +39,7 @@ export async function generateMetadata({
   return {
     title: categoriaInfo.label,
     description: categoriaInfo.descripcion,
+    alternates: { canonical: `/plantas?categoria=${categoriaActiva}` },
     ...(tieneProductos ? {} : { robots: { index: false, follow: true } }),
   };
 }
@@ -50,9 +54,36 @@ export default async function PlantasPage({
   const productos = getPlantas(categoriaActiva);
   const categoriaInfo = CATEGORIAS_PLANTAS.find((c) => c.valor === categoriaActiva);
 
+  const migas: MigaPan[] = [
+    { label: "Inicio", href: "/" },
+    ...(categoriaActiva && categoriaInfo
+      ? [{ label: "Plantas", href: "/plantas" }, { label: categoriaInfo.label }]
+      : [{ label: "Plantas" }]),
+  ];
+
+  // Solo en el listado general (sin filtro): lista las 5 categorías reales
+  // que ya se muestran en pantalla, no productos -- hoy no hay ninguno
+  // cargado todavía, así que no hay nada que listar como ItemList de
+  // productos sin inventar disponibilidad.
+  const jsonLd = !categoriaActiva
+    ? collectionPageJsonLd({
+        nombre: "Plantas",
+        descripcion:
+          "Ornamentales, árboles, arbustos y plantas de interior de Vivero Las Colonias, con despacho en Chile: tan parte del vivero como nuestros rosales.",
+        url: `${SITE_URL}/plantas`,
+        items: CATEGORIAS_PLANTAS.map((c) => ({
+          nombre: c.label,
+          url: `${SITE_URL}/plantas?categoria=${c.valor}`,
+          imagenUrl: null,
+        })),
+      })
+    : null;
+
   return (
     <div className="py-16 md:py-20">
+      {jsonLd && <JsonLd data={jsonLd} />}
       <Container>
+        <Breadcrumbs items={migas} />
         <div className="mb-10 text-center">
           <p className="mb-3 text-xs font-medium tracking-[0.2em] uppercase text-[var(--color-earth)]">
             Nuestro catálogo

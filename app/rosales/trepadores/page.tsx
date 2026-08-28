@@ -11,10 +11,13 @@ export const metadata: Metadata = {
 export default function RosalesTrepadoresPage() {
   return (
     <CategoriaRosalSeccion
+      ruta="/rosales/trepadores"
+      migas={[{ label: "Inicio", href: "/" }, { label: "Rosales", href: "/rosales" }, { label: "Rosales trepadores" }]}
       subcategoria="Trepadora"
       eyebrow="Rosales trepadores"
       titulo="Rosales trepadores"
       descripcion="Rosales de crecimiento vigoroso, pensados para cubrir muros, pérgolas, cercos y estructuras verticales del jardín."
+      parrafoExtra="Desarrollan tallos largos y flexibles que no se sostienen solos: hay que guiarlos y atarlos sobre la estructura que quieras cubrir. Es la opción indicada cuando se busca floración sobre una superficie vertical, no solo color en un macizo."
       guiaRelacionada={{ href: "/guias/cuando-podar-rosales", texto: "Cómo y cuándo podar un rosal trepador →" }}
     />
   );

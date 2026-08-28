@@ -60,9 +60,13 @@ export default function FichaProducto({
     descripcion: producto.descripcion,
     slug: producto.slug,
     categoria: producto.categoria,
+    subcategoria: producto.subcategoria,
     precio: producto.precio,
     disponible: producto.disponible,
     imagenUrl,
+    tipoFloracion: producto.tipoFloracion,
+    color: producto.color,
+    aromatica: producto.aromatica,
   });
   const rutaSubcategoria = producto.subcategoria ? RUTA_POR_SUBCATEGORIA[producto.subcategoria] : undefined;
 

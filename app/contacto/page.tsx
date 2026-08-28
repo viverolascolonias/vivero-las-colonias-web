@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Container from "@/app/components/ui/Container";
 import WhatsAppButton from "@/app/components/ui/WhatsAppButton";
 import ContactoForm from "@/app/components/contacto/ContactoForm";
+import Breadcrumbs from "@/app/components/ui/Breadcrumbs";
 import { SITE_ADDRESS, HORARIO_CONTACTO, NOTA_ATENCION_PRESENCIAL } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -18,6 +19,7 @@ export default function ContactoPage() {
   return (
     <div className="py-16 md:py-20">
       <Container>
+        <Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Contacto" }]} />
         <div className="mb-14 text-center">
           <p className="mb-3 text-xs font-medium tracking-[0.2em] uppercase text-[var(--color-earth)]">
             Hablemos
@@ -111,12 +113,12 @@ export default function ContactoPage() {
               <div>
                 <h2 className="font-[var(--font-heading)] text-lg text-[var(--color-forest-dark)]">Instagram</h2>
                 <a
-                  href="https://instagram.com/viverolascoloniaschile"
+                  href="https://instagram.com/viverolascoloniaspaine"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm text-[var(--color-ink-soft)] hover:text-[var(--color-forest)]"
                 >
-                  @viverolascoloniaschile
+                  @viverolascoloniaspaine
                 </a>
               </div>
             </div>

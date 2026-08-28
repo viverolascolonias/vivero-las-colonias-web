@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Container from "@/app/components/ui/Container";
 import ImagenBloque from "@/app/components/ui/ImagenBloque";
 import SectionHeading from "@/app/components/ui/SectionHeading";
+import Breadcrumbs from "@/app/components/ui/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Quiénes somos",
@@ -39,6 +40,9 @@ const COMPROMISO = [
 export default function NosotrosPage() {
   return (
     <div>
+      <Container className="pt-6">
+        <Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Quiénes somos" }]} />
+      </Container>
       <Container className="py-16 md:py-20">
         {/* Foto y texto conviven en la primera pantalla, sin necesidad de
             hacer scroll para ver todo. En mobile la foto va primero (más

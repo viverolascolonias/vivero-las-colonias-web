@@ -8,11 +8,11 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-ink)]/45 via-[var(--color-ink)]/10 to-transparent" />
 
       <div className="relative z-10 mx-auto max-w-2xl px-6 text-center">
-        <p className="mb-4 text-xs font-medium tracking-[0.3em] uppercase text-[var(--color-cream-50)]">
-          Rosales, plantas y paisajismo
-        </p>
-        <h1 className="font-[var(--font-heading)] text-5xl md:text-6xl italic text-[var(--color-cream-50)]">
-          Vivero Las Colonias
+        {/* Único H1 principal, pedido explícitamente por el negocio en la
+            revisión final de la Fase 2 -- reemplaza el kicker separado +
+            H1 solo-marca que había antes. */}
+        <h1 className="font-[var(--font-heading)] text-4xl md:text-5xl italic text-[var(--color-cream-50)]">
+          Vivero Las Colonias: Rosales y plantas ornamentales
         </h1>
         <p className="mx-auto mt-5 max-w-md text-lg text-[var(--color-cream-100)]">
           Rosales, plantas y vida para crear espacios únicos.

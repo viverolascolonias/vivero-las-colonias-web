@@ -1,13 +1,17 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Container from "@/app/components/ui/Container";
 import ImagenBloque from "@/app/components/ui/ImagenBloque";
 import ImagenFondo from "@/app/components/ui/ImagenFondo";
 import SectionHeading from "@/app/components/ui/SectionHeading";
 import Badge from "@/app/components/ui/Badge";
 import WhatsAppButton from "@/app/components/ui/WhatsAppButton";
+import Breadcrumbs from "@/app/components/ui/Breadcrumbs";
+import JsonLd from "@/app/components/ui/JsonLd";
+import { serviceJsonLd, SITE_URL } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Paisajismo",
+  title: "Paisajismo y diseño de jardines",
   description: "Diseño, instalación, mantención y asesoría de jardines en Chile por Vivero Las Colonias.",
   alternates: { canonical: "/paisajismo" },
 };
@@ -76,8 +80,20 @@ const SERVICIOS = [
 ];
 
 export default function PaisajismoPage() {
+  const jsonLd = serviceJsonLd({
+    nombre: "Paisajismo",
+    descripcion: "Diseño, instalación, mantención y asesoría de jardines en Chile por Vivero Las Colonias.",
+    url: `${SITE_URL}/paisajismo`,
+    items: SERVICIOS,
+  });
+
   return (
     <div>
+      <JsonLd data={jsonLd} />
+      <Container className="pt-6">
+        <Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Paisajismo" }]} />
+      </Container>
+
       <section className="relative flex h-[62vh] min-h-[440px] items-center overflow-hidden">
         {/* La foto es la protagonista: ocupa prácticamente todo el hero.
             Está compuesta con espacio libre a la izquierda para el texto.
@@ -97,11 +113,12 @@ export default function PaisajismoPage() {
 
         <Container className="relative z-10">
           <div className="max-w-md text-left">
-            <p className="mb-3 text-xs font-medium tracking-[0.2em] uppercase text-[var(--color-cream-50)]">
-              Paisajismo
-            </p>
-            <h1 className="text-4xl md:text-5xl font-medium text-[var(--color-cream-50)]">
-              Diseñamos espacios que cobran vida
+            {/* Una sola etiqueta <h1> semántica: antes "Paisajismo" (la
+                keyword) era un <p> suelto separado del <h1>. Mismo diseño
+                visual, mismas clases, solo se fusiona en un único encabezado. */}
+            <h1 className="text-[var(--color-cream-50)]">
+              <span className="block mb-3 text-xs font-medium tracking-[0.2em] uppercase">Paisajismo</span>
+              <span className="block text-4xl md:text-5xl font-medium">Diseñamos espacios que cobran vida</span>
             </h1>
             <p className="mt-4 text-[var(--color-cream-100)]">
               Proyectos personalizados de diseño, instalación, mantención y asesoría.
@@ -157,7 +174,12 @@ export default function PaisajismoPage() {
           ))}
         </div>
 
-        <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <SectionHeading
+          eyebrow="Qué hacemos"
+          title="Nuestros servicios de paisajismo"
+          subtitle="Del diseño a la mantención, con asesoría en cada etapa del proyecto."
+        />
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {SERVICIOS.map((s) => (
             <div
               key={s.titulo}
@@ -170,6 +192,17 @@ export default function PaisajismoPage() {
             </div>
           ))}
         </div>
+        <p className="mt-6 text-center text-sm text-[var(--color-ink-soft)]">
+          Cada proyecto se arma con variedades de nuestro propio catálogo de{" "}
+          <Link href="/rosales" className="text-[var(--color-forest)] underline">
+            rosales
+          </Link>{" "}
+          y{" "}
+          <Link href="/plantas" className="text-[var(--color-forest)] underline">
+            plantas
+          </Link>
+          .
+        </p>
 
         <div className="mt-16 rounded-2xl bg-[var(--color-forest)] px-8 py-12 text-center">
           <h2 className="font-[var(--font-heading)] text-2xl md:text-3xl text-[var(--color-cream-50)]">

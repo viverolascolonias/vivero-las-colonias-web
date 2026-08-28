@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Container from "@/app/components/ui/Container";
+import Breadcrumbs from "@/app/components/ui/Breadcrumbs";
+import JsonLd from "@/app/components/ui/JsonLd";
 import { GUIAS } from "@/lib/guias";
+import { collectionPageJsonLd, SITE_URL } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Guías de rosales",
@@ -10,9 +13,18 @@ export const metadata: Metadata = {
 };
 
 export default function GuiasPage() {
+  const jsonLd = collectionPageJsonLd({
+    nombre: "Guías de rosales",
+    descripcion: "Guías prácticas de Vivero Las Colonias sobre cómo elegir, plantar y cuidar rosales.",
+    url: `${SITE_URL}/guias`,
+    items: GUIAS.map((g) => ({ nombre: g.titulo, url: `${SITE_URL}/guias/${g.slug}`, imagenUrl: null })),
+  });
+
   return (
     <div className="py-16 md:py-20">
+      <JsonLd data={jsonLd} />
       <Container>
+        <Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Guías" }]} />
         <div className="mb-12 text-center">
           <p className="mb-3 text-xs font-medium tracking-[0.2em] uppercase text-[var(--color-earth)]">
             Aprende con nosotros

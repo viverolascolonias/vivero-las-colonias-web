@@ -13,12 +13,12 @@ export default function InstagramFeed() {
           </p>
           <h2 className="text-3xl md:text-4xl font-medium text-[var(--color-forest-dark)]">
             <a
-              href="https://instagram.com/viverolascoloniaschile"
+              href="https://instagram.com/viverolascoloniaspaine"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-[var(--color-forest)]"
             >
-              @viverolascoloniaschile
+              @viverolascoloniaspaine
             </a>
           </h2>
         </div>
@@ -26,7 +26,7 @@ export default function InstagramFeed() {
           {VARIANTES.map((v, i) => (
             <a
               key={i}
-              href="https://instagram.com/viverolascoloniaschile"
+              href="https://instagram.com/viverolascoloniaspaine"
               target="_blank"
               rel="noopener noreferrer"
               className="block"

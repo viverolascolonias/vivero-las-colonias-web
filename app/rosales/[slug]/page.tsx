@@ -12,6 +12,16 @@ const RUTA_POR_SUBCATEGORIA: Record<string, string> = {
   "Medio pie": "/rosales/medio-pie",
 };
 
+// Mismo texto que el <h1> de cada página de categoría (ver
+// app/rosales/{arbustivos,trepadores,medio-pie}/page.tsx) -- para que la
+// miga de pan de la ficha de producto lea igual que el destino al que
+// apunta, en vez del valor crudo de subcategoría del ERP ("Arbustiva baja").
+const LABEL_POR_SUBCATEGORIA: Record<string, string> = {
+  "Arbustiva baja": "Rosales arbustivos",
+  Trepadora: "Rosales trepadores",
+  "Medio pie": "Rosales medio pie",
+};
+
 export function generateStaticParams() {
   return getRosales().map((p) => ({ slug: p.slug }));
 }
@@ -40,7 +50,12 @@ export default async function RosalDetallePage({ params }: { params: Promise<{ s
     { label: "Inicio", href: "/" },
     { label: "Rosales", href: "/rosales" },
     ...(producto.subcategoria && RUTA_POR_SUBCATEGORIA[producto.subcategoria]
-      ? [{ label: producto.subcategoria, href: RUTA_POR_SUBCATEGORIA[producto.subcategoria] }]
+      ? [
+          {
+            label: LABEL_POR_SUBCATEGORIA[producto.subcategoria] ?? producto.subcategoria,
+            href: RUTA_POR_SUBCATEGORIA[producto.subcategoria],
+          },
+        ]
       : []),
     { label: producto.nombre },
   ];

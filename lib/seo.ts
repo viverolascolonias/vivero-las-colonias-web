@@ -6,7 +6,7 @@
 export const SITE_URL = "https://viverolascolonias.cl";
 export const SITE_NAME = "Vivero Las Colonias";
 export const SITE_EMAIL = "contacto@viverolascolonias.cl";
-export const INSTAGRAM_URL = "https://instagram.com/viverolascoloniaschile";
+export const INSTAGRAM_URL = "https://instagram.com/viverolascoloniaspaine";
 
 /**
  * Dirección real del vivero, confirmada explícitamente por el negocio
@@ -89,27 +89,44 @@ export function faqJsonLd(preguntas: { pregunta: string; respuesta: string }[]) 
 /**
  * Datos estructurados Product (schema.org) para una ficha de producto.
  * Solo usa datos ya confirmados del producto -- sin rating ni reviews
- * inventados, porque no existen todavía.
+ * inventados, porque no existen todavía. `tipoFloracion`/`color`/`aromatica`
+ * son la misma ficha botánica que ya se muestra en pantalla (ver
+ * FichaBotanica en FichaProducto.tsx) -- acá solo se refleja como
+ * `additionalProperty`, nunca se agrega un dato nuevo.
  */
 export function productoJsonLd({
   nombre,
   descripcion,
   slug,
   categoria,
+  subcategoria,
   precio,
   disponible,
   imagenUrl,
+  tipoFloracion,
+  color,
+  aromatica,
 }: {
   nombre: string;
   descripcion?: string;
   slug: string;
   categoria: string;
+  subcategoria?: string | null;
   precio: number | null;
   disponible: boolean;
   imagenUrl: string | null;
+  tipoFloracion?: string | null;
+  color?: string | null;
+  aromatica?: boolean | null;
 }) {
   const carpeta = categoria === "Rosal" ? "rosales" : "plantas";
   const url = `${SITE_URL}/${carpeta}/${slug}`;
+
+  const additionalProperty = [
+    tipoFloracion ? { "@type": "PropertyValue", name: "Tipo de floración", value: tipoFloracion } : null,
+    color ? { "@type": "PropertyValue", name: "Color", value: color } : null,
+    aromatica == null ? null : { "@type": "PropertyValue", name: "Aromática", value: aromatica ? "Sí" : "No" },
+  ].filter((p): p is { "@type": string; name: string; value: string } => p !== null);
 
   return {
     "@context": "https://schema.org",
@@ -119,6 +136,8 @@ export function productoJsonLd({
     url,
     ...(imagenUrl ? { image: `${SITE_URL}${imagenUrl}` } : {}),
     brand: { "@type": "Brand", name: SITE_NAME },
+    category: subcategoria ? `${categoria} > ${subcategoria}` : categoria,
+    ...(additionalProperty.length > 0 ? { additionalProperty } : {}),
     ...(precio != null
       ? {
           offers: {
@@ -130,5 +149,77 @@ export function productoJsonLd({
           },
         }
       : {}),
+  };
+}
+
+/**
+ * Datos estructurados Service para una página de servicio (ej. Paisajismo).
+ * `items` son los mismos servicios ya listados en pantalla (ver SERVICIOS
+ * en app/paisajismo/page.tsx) -- nunca una lista aparte.
+ */
+export function serviceJsonLd({
+  nombre,
+  descripcion,
+  url,
+  items,
+}: {
+  nombre: string;
+  descripcion: string;
+  url: string;
+  items: { titulo: string; descripcion: string }[];
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    serviceType: nombre,
+    name: nombre,
+    description: descripcion,
+    url,
+    provider: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
+    areaServed: "CL",
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: nombre,
+      itemListElement: items.map((item) => ({
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: item.titulo, description: item.descripcion },
+      })),
+    },
+  };
+}
+
+/**
+ * Datos estructurados CollectionPage + ItemList para una página de listado
+ * (catálogo de rosales o una de sus categorías). `items` debe ser el mismo
+ * arreglo de productos que ya se renderiza en la grilla -- nunca una lista
+ * aparte, para que el schema no pueda desalinearse de lo que ve el usuario.
+ */
+export function collectionPageJsonLd({
+  nombre,
+  descripcion,
+  url,
+  items,
+}: {
+  nombre: string;
+  descripcion: string;
+  url: string;
+  items: { nombre: string; url: string; imagenUrl: string | null }[];
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: nombre,
+    description: descripcion,
+    url,
+    mainEntity: {
+      "@type": "ItemList",
+      itemListElement: items.map((item, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        url: item.url,
+        name: item.nombre,
+        ...(item.imagenUrl ? { image: `${SITE_URL}${item.imagenUrl}` } : {}),
+      })),
+    },
   };
 }

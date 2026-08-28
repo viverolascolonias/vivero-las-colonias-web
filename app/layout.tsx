@@ -28,7 +28,7 @@ const inter = Inter({
   weight: ["400", "500", "600"],
 });
 
-const TITULO_SITIO = "Vivero Las Colonias — Rosales en Chile";
+const TITULO_SITIO = "Vivero Las Colonias | Rosales y plantas ornamentales en Chile";
 const DESCRIPCION_SITIO =
   "Vivero especializado en rosales: arbustivos, trepadores y medio pie, más de 40 variedades. Plantas ornamentales, árboles y paisajismo, con despacho en Chile.";
 
@@ -36,6 +36,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: { default: TITULO_SITIO, template: `%s — ${SITE_NAME}` },
   description: DESCRIPCION_SITIO,
+  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     locale: "es_CL",
@@ -43,6 +44,17 @@ export const metadata: Metadata = {
     title: TITULO_SITIO,
     description: DESCRIPCION_SITIO,
     url: SITE_URL,
+    // Foto real del vivero (recorte apaisado de public/images/hero-inicio.jpg,
+    // el mismo hero de portada) -- imagen por defecto para cualquier página
+    // que no defina la suya propia al compartir en WhatsApp/redes.
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Rosales en flor cultivados por Vivero Las Colonias",
+      },
+    ],
   },
 };
 

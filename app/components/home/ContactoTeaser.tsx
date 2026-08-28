@@ -28,8 +28,8 @@ const CANALES = [
   },
   {
     label: "Instagram",
-    valor: "@viverolascoloniaschile",
-    href: "https://instagram.com/viverolascoloniaschile",
+    valor: "@viverolascoloniaspaine",
+    href: "https://instagram.com/viverolascoloniaspaine",
     icono: (
       <>
         <rect x="3.5" y="3.5" width="17" height="17" rx="5" />
