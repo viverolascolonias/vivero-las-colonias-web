@@ -6,7 +6,7 @@
 export const SITE_URL = "https://viverolascolonias.cl";
 export const SITE_NAME = "Vivero Las Colonias";
 export const SITE_EMAIL = "contacto@viverolascolonias.cl";
-export const INSTAGRAM_URL = "https://instagram.com/viverolascoloniaspaine";
+export const INSTAGRAM_URL = "https://instagram.com/viverolascoloniaschile";
 
 /**
  * Dirección real del vivero, confirmada explícitamente por el negocio

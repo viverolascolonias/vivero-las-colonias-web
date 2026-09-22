@@ -113,12 +113,12 @@ export default function ContactoPage() {
               <div>
                 <h2 className="font-[var(--font-heading)] text-lg text-[var(--color-forest-dark)]">Instagram</h2>
                 <a
-                  href="https://instagram.com/viverolascoloniaspaine"
+                  href="https://instagram.com/viverolascoloniaschile"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm text-[var(--color-ink-soft)] hover:text-[var(--color-forest)]"
                 >
-                  @viverolascoloniaspaine
+                  @viverolascoloniaschile
                 </a>
               </div>
             </div>

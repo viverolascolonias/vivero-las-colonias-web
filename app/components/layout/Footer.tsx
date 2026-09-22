@@ -62,12 +62,12 @@ export default function Footer() {
             </li>
             <li>
               <a
-                href="https://instagram.com/viverolascoloniaspaine"
+                href="https://instagram.com/viverolascoloniaschile"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-[var(--color-forest)]"
               >
-                @viverolascoloniaspaine
+                @viverolascoloniaschile
               </a>
             </li>
           </ul>
